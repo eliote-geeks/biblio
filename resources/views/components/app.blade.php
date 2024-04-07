@@ -112,7 +112,7 @@
 				<input
 					type="search"
 					class="form-control ps-6"
-					placeholder="Search Courses"
+					placeholder="Search Book"
 				/>
 			</form>
 			<ul class="navbar-nav navbar-right-wrap ms-auto d-none d-lg-block">
