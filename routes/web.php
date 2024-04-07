@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Book;
 use App\Models\Ebook;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::get('/', function() {
 
 Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
+
+Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

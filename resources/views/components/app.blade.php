@@ -162,7 +162,7 @@
 							<li>
 								<a
 									class="dropdown-item"
-									href="pages/profile-edit.html"
+									href="{{ route('profileUser') }}"
 								>
 									<i class="fe fe-user me-2"></i>Profile
 								</a>

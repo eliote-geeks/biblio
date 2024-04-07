@@ -181,11 +181,7 @@
                                     <div class="col ms-2">
                                         <span>{{$e->book->author}}</span>
                                     </div>
-                                    <div class="col-auto">
-                                        <a href="#" class="text-muted bookmark">
-                                            <i class="fe fe-bookmark  "></i>
-                                        </a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
