@@ -94,7 +94,7 @@
 										
 						<li>
 							<a
-								href="pages/course-category.html"
+								href="{{ route('category.show',$cat) }}"
 								class="dropdown-item"
 							>
 								{{ $cat->name }}
