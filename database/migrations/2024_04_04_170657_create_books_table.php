@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('status');
             $table->longText('description');
             $table->string('author');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }
