@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class BookController extends Controller
 {
@@ -29,7 +32,28 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = Book::create([
+            'title'=>$request->title,
+            'author'=>$request->author,
+            'quantity'=>$request->quantity,
+            'description'=>$request->description,
+            'status'=>$request->status,
+            'category_id'=>$request->category_id,
+        ]);
+
+        if($request->file('cover_path')){
+            $request->validate([
+                'cover_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $ext = $request->file('cover_path')->extension();
+            $content = file_get_contents($request->file('cover_path'));
+            $filename = str::random(10);
+            $path = "CoverPhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $book->update([
+                'cover_path' =>$path
+            ]);
+        }
+
     }
 
     /**
@@ -55,7 +79,22 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $book->update($request ->all());
+        
+        if($request->file('cover_photo')){
+            $request->validate([
+                'cover_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            Storage::disk('public')->delete($book->cover_photo);
+            $ext = $request->file('photo')->extension();
+            $content = file_get_contents($request->file('cover_photo'));
+            $filename = str::random(10);
+            $path = "CoverPhoto/.$filename.$ext";
+            storage::disk('public')->put($path,$content);
+            $book->update([
+                'cover_photo' =>$path
+            ]);
+
+        }
     }
 
     /**
