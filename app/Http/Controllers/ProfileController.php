@@ -24,22 +24,22 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'name' => 'required',
             'matricular'  => 'required',
-            'birth' => 'required|date',
+            // 'birth' => 'required|date',
             'address' => 'required',
             'department' => 'required',
             'sexe' => 'required',
         ]);
 
         $user = User::findOrFail(auth()->user()->id);
+        // if(User::where('name',$user->name)->count() == 0 && User::where('') )
         $user->name = $request->name;
-        $user->matricular = $request->matricular;
-        $user->birth = $request->birth;
+        $user->matricule = $request->matricular;
+        // $user->birth = $request->birth;
         $user->address = $request->address;
-        $user->department = $request->department;
+        $user->dept = $request->department;
         $user->sexe = $request->sexe;
         $user->save();
         return redirect()->back()->with('message','informations updated !!');

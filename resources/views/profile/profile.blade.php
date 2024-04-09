@@ -27,13 +27,16 @@
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="lname"> Name</label>
                                 <input type="text" id="lname" class="form-control" placeholder="Name"
-                                    name="name" required />
+                                    name="name" value="{{ Auth::user()->name }}" required />
+
+                                    @error('name')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
                             <!-- First name -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="fname">Matricular</label>
                                 <input type="text" id="fname" class="form-control" placeholder="matricular"
-                                    name="matricular" required />
+                                    name="matricular" value="{{ Auth::user()->matricule }}" required />
+                                    @error('matricular')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
 
@@ -41,24 +44,26 @@
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="birth">Level</label>
                                 <input class="form-control" type="text" placeholder="Level" id="birth"
-                                    name="birth" name="level" />
+                                     name="level" value="{{ Auth::user()->level }}" />
                             </div>
                             <!-- Address -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="address">Address</label>
                                 <input type="text" id="address" class="form-control" placeholder="address"
-                                    name="address" required />
+                                    name="address" value="{{ Auth::user()->address }}" required />
+                                    @error('level')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
                             <!-- State -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label">Department</label>
                                 <select class="selectpicker" name="department" data-width="100%">
-                                    <option value="">Select Department</option>
+                                    <option value="{{ Auth::user()->department }}">{{ Auth::user()->department }}</option>
                                     <option value="1">Gujarat</option>
                                     <option value="2">Rajasthan</option>
                                     <option value="3">Maharashtra</option>
                                 </select>
+                                @error('department')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
                             <!-- State -->
@@ -69,6 +74,7 @@
                                     <option value="male">male</option>
                                     <option value="female">female</option>
                                 </select>
+                                @error('sexe')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
                             <div class="col-12">
                                 <!-- Button -->
