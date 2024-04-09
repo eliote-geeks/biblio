@@ -1,5 +1,5 @@
 <base href="/">
-<x-app>
+<x-appapp>
 
         <!-- Page header -->
         <div class="pt-lg-8 pb-lg-16 pt-8 pb-12 bg-primary">
@@ -15,7 +15,7 @@
                                 <a href="#" class="bookmark text-white text-decoration-none">
                                     <i class="fe fe-bookmark text-white-50 me-2"></i>Bookmark
                                 </a>
-    
+
                                 <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> 1200 Enrolled </span>
                                 <span class="ms-4">
                     <i class="mdi mdi-star me-n1 text-warning"></i>
@@ -1273,7 +1273,7 @@
                                                     </div>
                                                     <p>
                                                         I have really enjoyed this class and learned a lot, found it very inspiring and helpful, thank you!
-    
+
                                                     </p>
                                                     <div class="d-lg-flex">
                                                         <p class="mb-0">Was this review helpful?</p>
