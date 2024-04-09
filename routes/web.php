@@ -33,6 +33,7 @@ Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
 
 Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');
+Route::get('delete/user',[ProfileController::class,'deleteAccount'])->name('user.delete');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

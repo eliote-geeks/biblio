@@ -10,4 +10,9 @@ class ProfileController extends Controller
     {
         return view('profile.profile');
     }
+
+    public function deleteAccount()
+    {
+        return view('profile.delete');
+    }
 }

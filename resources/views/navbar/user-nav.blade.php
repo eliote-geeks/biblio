@@ -46,15 +46,24 @@
                 </li>
                 <!-- Nav item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="delete-profile.html"><i
+                    <a class="nav-link" href="{{ route('user.delete') }}"><i
                             class="fe fe-trash nav-icon"></i>Delete
                         Profile</a>
                 </li>
 
                 <!-- Nav item -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html"><i
-                            class="fe fe-power nav-icon"></i>Sign Out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+						@csrf
+						<div class="nav-item">
+							<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+										this.closest('form').submit(); " role="button">
+								<i class="fe fe-power me-2"></i>
+
+								{{ __('Log Out') }}
+							</a>
+						</div>
+					</form>
                 </li>
             </ul>
         </div>
