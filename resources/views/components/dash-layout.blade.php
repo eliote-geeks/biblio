@@ -84,13 +84,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse" data-bs-target="#navCourses" aria-expanded="false" aria-controls="navCourses">
-                    <i class="nav-icon fe fe-book me-2"></i> Courses
+                    <i class="nav-icon fe fe-book me-2"></i> Books
                 </a>
                 <div id="navCourses"  class="collapse "  data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="admin-course-overview.html">
-                                    All Courses
+                            <a class="nav-link " href="{{ route('book.index') }}">
+                                    All Books
                                 </a>
                         </li>
                         <li class="nav-item">
