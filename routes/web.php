@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProfileController;
 use App\Models\Book;
 use App\Models\Ebook;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        if(Auth::user()->user_type == 'App\Models\Admin')
+            return view('dashboard');
+        return redirect()->route('profileUser');
     })->name('dashboard');
 });
