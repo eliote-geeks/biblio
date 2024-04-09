@@ -15,4 +15,9 @@ class ProfileController extends Controller
     {
         return view('profile.delete');
     }
+
+    public function security()
+    {
+        return view('profile.security');
+    }
 }

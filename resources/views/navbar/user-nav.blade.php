@@ -25,13 +25,13 @@
             <!-- List -->
             <ul class="list-unstyled ms-n2 mb-0">
                 <!-- Nav item -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="profile-edit.html"><i
+                <li class="nav-item {{ Request::routeIs('profileUser') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('profileUser') }}"><i
                             class="fe fe-settings nav-icon"></i>Edit Profile</a>
                 </li>
                 <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link" href="security.html"><i
+                <li class="nav-item {{ Request::routeIs('user.security') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('user.security') }}"><i
                             class="fe fe-user nav-icon"></i>Security</a>
                 </li>
 
@@ -45,7 +45,7 @@
                             class="fe fe-lock nav-icon"></i>Books Deadlines</a>
                 </li>
                 <!-- Nav item -->
-                <li class="nav-item">
+                <li class="nav-item {{ Request::routeIs('user.delete') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('user.delete') }}"><i
                             class="fe fe-trash nav-icon"></i>Delete
                         Profile</a>
