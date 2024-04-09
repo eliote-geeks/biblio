@@ -32,9 +32,8 @@ Route::get('/', function() {
 Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
 
-Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');
-Route::get('delete/user',[ProfileController::class,'deleteAccount'])->name('user.delete');
-Route::get('security/user',[ProfileController::class,'security'])->name('user.security');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -45,4 +44,9 @@ Route::middleware([
             return view('dashboard');
         return redirect()->route('profileUser');
     })->name('dashboard');
+
+    Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');
+Route::get('delete/user',[ProfileController::class,'deleteAccount'])->name('user.delete');
+Route::get('security/user',[ProfileController::class,'security'])->name('user.security');
+Route::post('update/profile',[ProfileController::class,'updateProfile'])->name('updateProfile');
 });

@@ -39,11 +39,7 @@
                     <a class="nav-link" href="notifications.html"><i
                             class="fe fe-bell nav-icon"></i>Notifications</a>
                 </li>
-                <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link" href="profile-privacy.html"><i
-                            class="fe fe-lock nav-icon"></i>Books Deadlines</a>
-                </li>
+                
                 <!-- Nav item -->
                 <li class="nav-item {{ Request::routeIs('user.delete') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('user.delete') }}"><i

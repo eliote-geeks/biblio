@@ -13,22 +13,7 @@
                 </div>
                 <!-- Card body -->
                 <div class="card-body">
-                    <div class="d-lg-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center mb-4 mb-lg-0">
-                            <img src="{{ Auth::user()->profile_photo_url }}" id="img-uploaded"
-                                class="avatar-xl rounded-circle" alt="" />
-                            <div class="ms-3">
-                                <h4 class="mb-0">Your avatar</h4>
-                                <p class="mb-0">
-                                    PNG or JPG no bigger than 800px wide and tall.
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="#" class="btn btn-outline-white btn-sm">Update</a>
-                            <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
-                        </div>
-                    </div>
+                    {{-- @livewire('profile-edit') --}}
                     <hr class="my-5" />
                     <div>
                         <h4 class="mb-0">Personal Details</h4>
@@ -36,18 +21,19 @@
                             Edit your personal information and address.
                         </p>
                         <!-- Form -->
-                        <form class="row">
-
+                        <form class="row" method="POST" action="{{ route('updateProfile') }}">
+                            @csrf
                             <!-- Last name -->
-                            <div class="mb-3 col-12 col-md-12">
+                            <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="lname"> Name</label>
-                                <input type="text" id="lname" class="form-control" placeholder="Name" required />
+                                <input type="text" id="lname" class="form-control" placeholder="Name"
+                                    name="name" required />
                             </div>
                             <!-- First name -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="fname">Matricular</label>
                                 <input type="text" id="fname" class="form-control" placeholder="matricular"
-                                    required />
+                                    name="matricular" required />
                             </div>
 
 
@@ -55,23 +41,33 @@
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="birth">Level</label>
                                 <input class="form-control" type="text" placeholder="Level" id="birth"
-                                    name="birth" />
+                                    name="birth" name="level" />
                             </div>
                             <!-- Address -->
                             <div class="mb-3 col-12 col-md-6">
-                                <label class="form-label" for="address">Email</label>
-                                <input type="email" id="address" class="form-control" placeholder="email"
-                                    required />
+                                <label class="form-label" for="address">Address</label>
+                                <input type="text" id="address" class="form-control" placeholder="address"
+                                    name="address" required />
                             </div>
 
                             <!-- State -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label">Department</label>
-                                <select class="selectpicker" data-width="100%">
+                                <select class="selectpicker" name="department" data-width="100%">
                                     <option value="">Select Department</option>
                                     <option value="1">Gujarat</option>
                                     <option value="2">Rajasthan</option>
                                     <option value="3">Maharashtra</option>
+                                </select>
+                            </div>
+
+                            <!-- State -->
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label">Sexe</label>
+                                <select class="selectpicker" name="sexe" data-width="100%">
+                                    <option value="">Select sexe</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -87,4 +83,3 @@
         </div>
     </x-app-student>
 </x-app>
-

@@ -82,10 +82,11 @@ Loading...
                         <div class="col-6"></div>
                     </div>
                     <div class="col-12 mt-4">
-                        {{-- <p class="mb-0">
-                            Can't remember your current password?
-                            <a href="#">Reset your password via email</a>
-                        </p> --}}
+                        @if(session()->has('message'))
+                        <p class="alert alert-info">
+                            {{ session()->get('message') }}
+                        </p> 
+                        @endif
                     </div>
                 </form>
             </div>
