@@ -14,6 +14,9 @@
                 <!-- Card body -->
                 <div class="card-body">
                     {{-- @livewire('profile-edit') --}}
+                    @if (session()->has('message'))
+                        <p class="alert alert-success">{{ session()->get('message') }}</p>
+                    @endif
                     <hr class="my-5" />
                     <div>
                         <h4 class="mb-0">Personal Details</h4>
@@ -58,10 +61,10 @@
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label">Department</label>
                                 <select class="selectpicker" name="department" data-width="100%">
-                                    <option value="{{ Auth::user()->department }}">{{ Auth::user()->department }}</option>
-                                    <option value="1">Gujarat</option>
-                                    <option value="2">Rajasthan</option>
-                                    <option value="3">Maharashtra</option>
+                                    <option value="{{ Auth::user()->dept }}">{{ Auth::user()->dept }}</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Maharashtra">Maharashtra</option>
                                 </select>
                                 @error('department')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
@@ -71,8 +74,8 @@
                                 <label class="form-label">Sexe</label>
                                 <select class="selectpicker" name="sexe" data-width="100%">
                                     <option value="">Select sexe</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
+                                    <option @if(Auth::user()->sexe == 'male') selected @endif value="male">male</option>
+                                    <option @if(Auth::user()->sexe == 'female') selected @endif value="female">female</option>
                                 </select>
                                 @error('sexe')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
