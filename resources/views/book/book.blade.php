@@ -224,11 +224,11 @@
                         <div class="mb-3 mb-2">
                             <label class="form-label">Categorie</label>
                             <select class="selectpicker" data-width="100%" name="category_id">
-                                <option value="">Select</option>
-                                <option value="Course">Course</option>
-                                <option value="Tutorial">Tutorial</option>
-                                <option value="Workshop">Workshop</option>
-                                <option value="Company">Company</option>
+                                @foreach (\App\Models\Category::all() as  $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    
+                                @endforeach
+                               
                             </select>
                             @error('category_id')
                                 <span>{{ $message }}</span>
@@ -236,7 +236,7 @@
                         </div>
                         <div class="mb-3 mb-3">
                             <label class="form-label">Description</label>
-                            <div id="editor">
+                            <div>
                                 <input type="textarea" name="description">
                             </div>
                             @error('description')
