@@ -11,6 +11,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Book extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'author',
+        'category_id',
+        'status',
+        'cover_path',
+        'quantity'
+
+    ];
 
     public function ebook()
     {

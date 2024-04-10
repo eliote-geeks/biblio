@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all();
+        return view('category.add-category', compact('category'));
     }
 
     /**
@@ -28,7 +29,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create([
+            'name'=>$request->name,
+        ]);
+        return to_route( 'category.index')->with('message', 'Category created successfully');
     }
 
     /**

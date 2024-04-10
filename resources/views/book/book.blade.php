@@ -179,36 +179,48 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('book.store') }}" method="POST" enctype="multipart/form-data">
+                        @method('POST')
+                        @csrf
                         <div class="mb-3 mb-2">
                             <label class="form-label" for="title">Titre<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Write a name " id="title" name="title"
-                                required>
+                            <input type="text" class="form-control" placeholder="Write a name " id="title"
+                                name="title" required>
                             <small>Field must contain a unique value</small>
+                            @error('title')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="mb-3 mb-2">
                             <label class="form-label" for="title">auteur<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Write a name " id="title" name="author"
-                                required>
+                            <input type="text" class="form-control" placeholder="Write a name " id="title"
+                                name="author" required>
                             <small>Field must contain a unique value</small>
+                            @error('author')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="mb-3 mb-2">
                             <label class="form-label" for="title">Nombre<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" placeholder="20" id="title" name="quantity"
-                                required>
+                            <input type="number" class="form-control" placeholder="20" id="title"
+                                name="quantity" required>
                             <small>Field must contain a unique value</small>
+                            @error('quantity')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-12 mb-4">
                             <h5 class="mb-3">Cover Image </h5>
 
-                            <form action="#" class="d-block dropzone border-dashed min-h-0 rounded-2">
-                              <div class="fallback">
+                            <div class="fallback">
                                 <input name="cover_path" type="file" multiple />
-                              </div>
-                            </form>
+                            </div>
+                            @error('cover_path')
+                                <span>{{ $message }}</span>
+                            @enderror
 
 
-                          </div>
+                        </div>
                         <div class="mb-3 mb-2">
                             <label class="form-label">Categorie</label>
                             <select class="selectpicker" data-width="100%" name="category_id">
@@ -218,25 +230,36 @@
                                 <option value="Workshop">Workshop</option>
                                 <option value="Company">Company</option>
                             </select>
+                            @error('category_id')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="mb-3 mb-3">
                             <label class="form-label">Description</label>
                             <div id="editor">
                                 <input type="textarea" name="description">
                             </div>
+                            @error('description')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Status</label>
                             <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" id="customSwitch1" checked name="status">
+                                <input type="checkbox" class="form-check-input" id="customSwitch1" checked
+                                    name="status">
                                 <label class="form-check-label" for="customSwitch1"></label>
                             </div>
+                            @error('status')
+                                <span>{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">Add New Book</button>
                             <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">
                                 Close
                             </button>
+                            <button type="submit" class="btn">test</button>
                         </div>
                     </form>
                 </div>

@@ -95,6 +95,7 @@ class BookController extends Controller
             ]);
 
         }
+        return redirect()->route('books.index')->with('message','Book updated successfully');
     }
 
     /**
@@ -102,6 +103,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return to_route('books.index')->with('message', 'Book deleted successfuly');
     }
 }
