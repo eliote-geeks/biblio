@@ -49,32 +49,75 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($category as  $cat)
-                                        
-                                    <tr>
-                                        <td>{{ $cat->id }}</td>
-                                        <td>{{ $cat->name }}</td>
-                                        <td class="text-muted align-middle border-top-0">
-                                            <span class="dropdown dropstart">
-                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                    role="button" id="courseDropdown1" data-bs-toggle="dropdown"
-                                                    data-bs-offset="-20,20" aria-expanded="false">
-                                                    <i class="fe fe-more-vertical"></i>
-                                                </a>
-                                                <span class="dropdown-menu" aria-labelledby="courseDropdown1">
-                                                    <span class="dropdown-header">Action</span>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                        Draft</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                    @foreach ($category as $cat)
+                                        <tr>
+                                            <td>{{ $cat->id }}</td>
+                                            <td>{{ $cat->name }}</td>
+                                            <td class="text-muted align-middle border-top-0">
+                                                <span class="dropdown dropstart">
+                                                    <a class="btn-icon btn btn-ghost btn-sm rounded-circle"
+                                                        href="#" role="button" id="courseDropdown1"
+                                                        data-bs-toggle="dropdown" data-bs-offset="-20,20"
+                                                        aria-expanded="false">
+                                                        <i class="fe fe-more-vertical"></i>
+                                                    </a>
+                                                    <span class="dropdown-menu" aria-labelledby="courseDropdown1">
+                                                        <span class="dropdown-header">Action</span>
+                                                        <a class="dropdown-item btn btn-primary" href="#"><i
+                                                                class="fe fe-edit dropdown-item-icon" data-bs-toggle="modal"
+                                                                data-bs-target="#editCatgory{{$cat->id}}" ></i>edit</a>
+                                                        
+                                                        <a class="dropdown-item" href="#"><i
+                                                                class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                    </span>
                                                 </span>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
 
+
+                                        <div class="modal fade" id="editCatgory{{$cat->id}}" tabindex="-1" role="dialog"
+                                            aria-labelledby="editCatgoryLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title mb-0" id="editCatgoryLabel">
+                                                            Edit Category
+                                                        </h4>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ route('category.update',$cat->id) }}" method="POST"
+                                                            enctype="multipart/form-data">
+                                                            @method('PATCH')
+                                                            @csrf
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="title">Name<span
+                                                                        class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Write a name " id="title"
+                                                                    name="name" required value="{{ $cat->name }}">
+                                                                <small>Field must contain a unique value</small>
+                                                                @error('name')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div>
+                                                                <button type="submit" class="btn btn-primary">Edit
+                                                                    category</button>
+                                                                <button type="button" class="btn btn-outline-white"
+                                                                    data-bs-dismiss="modal">
+                                                                    Close
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
 
 
