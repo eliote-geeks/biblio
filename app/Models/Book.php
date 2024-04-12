@@ -26,4 +26,9 @@ class Book extends Model
     {
         return $this->HasOne(Ebook::class);
     }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

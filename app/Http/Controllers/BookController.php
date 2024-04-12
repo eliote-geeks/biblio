@@ -53,7 +53,7 @@ class BookController extends Controller
                 'cover_path' =>$path
             ]);
         }
-
+        return to_route('book.index')->with('message' , 'book added sucessufully');
     }
 
     /**
@@ -81,21 +81,21 @@ class BookController extends Controller
     {
         $book->update($request ->all());
         
-        if($request->file('cover_photo')){
+        if($request->file('cover_path')){
             $request->validate([
-                'cover_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
-            Storage::disk('public')->delete($book->cover_photo);
-            $ext = $request->file('photo')->extension();
-            $content = file_get_contents($request->file('cover_photo'));
+                'cover_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            Storage::disk('public')->delete($book->cover_path);
+            $ext = $request->file('cover_path')->extension();
+            $content = file_get_contents($request->file('cover_path'));
             $filename = str::random(10);
             $path = "CoverPhoto/.$filename.$ext";
             storage::disk('public')->put($path,$content);
             $book->update([
-                'cover_photo' =>$path
+                'cover_path' =>$path
             ]);
 
         }
-        return redirect()->route('books.index')->with('message','Book updated successfully');
+        return redirect()->route('book.index')->with('message','Book updated successfully');
     }
 
     /**
