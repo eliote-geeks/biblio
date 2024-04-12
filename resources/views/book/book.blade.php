@@ -48,7 +48,7 @@
                                         <th>Status</th>
                                         <th>Categorie</th>
                                         <th>action</th>
-                                        
+
 
                                     </tr>
                                 </thead>
@@ -94,27 +94,38 @@
                                                     <span class="dropdown-menu" aria-labelledby="courseDropdown1">
                                                         <span class="dropdown-header">Action</span>
                                                         <a class="dropdown-item" data-bs-toggle="modal"
-                                                            data-bs-target="#editCatgory{{$book->id}}"
+                                                            data-bs-target="#editCatgory{{ $book->id }}"
                                                             href="#"><i
                                                                 class="fe fe-send dropdown-item-icon"></i>edit</a>
-                                                        <form action="{{ route('book.destroy',$book->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <i
-                                                                    class="fe fe-trash dropdown-item-icon btn "></i>Delete
-                                                        </form>
+                                                                <form id="deleteForm-{{$book->id}}" action="{{route('book.destroy',$book->id)}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a href="#" onclick="event.preventDefault(); deleteBook({{$book->id}});" class="dropdown-item">
+                                                                        <i class="fe fe-trash dropdown-item-icon"></i>Delete
+                                                                    </a>
+                                                                </form>
+                                                                
+                                                                <script>
+                                                                    function deleteBook(bookId) {
+                                                                        if (confirm('Are you sure you want to delete this book?')) {
+                                                                            document.getElementById('deleteForm-' + bookId).submit();
+                                                                        }
+                                                                    }
+                                                                </script>
+                                                                
+                                                       
+
 
                                                     </span>
                                                 </span>
                                             </td>
 
-                                            
+
                                         </tr>
 
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editCatgory{{$book->id}}" tabindex="-1"
+                                        <div class="modal fade" id="editCatgory{{ $book->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="newCatgoryLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                                 <div class="modal-content">
@@ -197,8 +208,7 @@
                                                             <div class="mb-3 mb-3">
                                                                 <label class="form-label">Description</label>
                                                                 <div>
-                                                                    <input type="textarea"
-                                                                        name="description"  {{ $book->description }}>
+                                                                    <textarea name="description" id="" cols="30" rows="10"> {{ $book->description }}</textarea>
                                                                 </div>
                                                                 @error('description')
                                                                     <span>{{ $message }}</span>
@@ -332,7 +342,8 @@
                         <div class="mb-3 mb-3">
                             <label class="form-label">Description</label>
                             <div>
-                                <input type="textarea" name="description">
+                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+
                             </div>
                             @error('description')
                                 <span>{{ $message }}</span>

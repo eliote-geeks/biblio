@@ -104,6 +104,6 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return to_route('books.index')->with('message', 'Book deleted successfuly');
+        return to_route('book.index')->with('message', 'Book deleted successfuly');
     }
 }

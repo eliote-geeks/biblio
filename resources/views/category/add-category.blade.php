@@ -66,9 +66,21 @@
                                                         <a class="dropdown-item btn btn-primary" href="#"><i
                                                                 class="fe fe-edit dropdown-item-icon" data-bs-toggle="modal"
                                                                 data-bs-target="#editCatgory{{$cat->id}}" ></i>edit</a>
-                                                        
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                <form id="deleteForm-{{$cat->id}}" action="{{route('category.destroy',$cat->id)}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a href="#" onclick="event.preventDefault(); deleteBook({{$cat->id}});" class="dropdown-item">
+                                                                        <i class="fe fe-trash dropdown-item-icon"></i>Delete
+                                                                    </a>
+                                                                </form>
+                                                                
+                                                                <script>
+                                                                    function deleteBook(bookId) {
+                                                                        if (confirm('Are you sure you want to delete this category?')) {
+                                                                            document.getElementById('deleteForm-' + bookId).submit();
+                                                                        }
+                                                                    }
+                                                                </script>
                                                     </span>
                                                 </span>
                                             </td>
