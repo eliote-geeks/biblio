@@ -458,241 +458,86 @@
  @endauth
             <!-- Card -->
             <div class="pt-12 pb-3">
-                <div class="row d-md-flex align-items-center mb-4">
-                    <div class="col-12">
-                        <h2 class="mb-0">Related Book</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Card -->
-                        <div class="card mb-4 card-hover">
-                            <a href="book-single.html" class="card-img-top"><img
-                                    src="../assets/images/book/book-react.jpg" alt=""
-                                    class="card-img-top rounded-top-md" /></a>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2"><a href="book-single.html"
-                                        class="text-inherit">How to
-                                        easily create a website with React</a></h4>
-                                <ul class="mb-3 list-inline">
-                                    <li class="list-inline-item"><i
-                                            class="mdi mdi-clock-time-four-outline text-muted me-1"></i>3h 56m</li>
-                                    <li class="list-inline-item">
-                                        <svg class="me-1 mt-n1" width="16" height="16" viewBox="0 0 16 16"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="3" y="8" width="2" height="6" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="7" y="5" width="2" height="9" rx="1"
-                                                fill="#DBD8E9" />
-                                            <rect x="11" y="2" width="2" height="12" rx="1"
-                                                fill="#DBD8E9" />
-                                        </svg> Beginner
-                                    </li>
-                                </ul>
-                                <div class="lh-1">
-                                    <span>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning"></i>
-                                    </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(7,700)</span>
-                                </div>
-                            </div>
-                            <!-- Card footer -->
-                            <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <img src="../assets/images/avatar/avatar-1.jpg"
-                                            class="rounded-circle avatar-xs" alt="" />
-                                    </div>
-                                    <div class="col ms-2">
-                                        <span>Morris Mccoy</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="#" class="text-muted bookmark">
-                                            <i class="fe fe-bookmark  "></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Card -->
-                        <div class="card mb-4 card-hover">
-                            <a href="book-single.html" class="card-img-top"><img
-                                    src="../assets/images/book/book-graphql.jpg" alt=""
-                                    class="card-img-top rounded-top-md" /></a>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2"><a href="book-single.html"
-                                        class="text-inherit">GraphQL:
-                                        introduction to graphQL for beginners</a></h4>
-                                <ul class="mb-3 list-inline">
-                                    <li class="list-inline-item"><i
-                                            class="mdi mdi-clock-time-four-outline text-muted me-1"></i>2h 46m</li>
-                                    <li class="list-inline-item">
-                                        <svg class="me-1 mt-n1" width="16" height="16" viewBox="0 0 16 16"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="3" y="8" width="2" height="6" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="7" y="5" width="2" height="9" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="11" y="2" width="2" height="12" rx="1"
-                                                fill="#754FFE" />
-                                        </svg> Advance
-                                    </li>
-                                </ul>
-                                <div class="lh-1">
-                                    <span>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning"></i>
-                                    </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(9,300)</span>
-                                </div>
-                            </div>
-                            <!-- Card footer -->
-                            <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <img src="../assets/images/avatar/avatar-2.jpg"
-                                            class="rounded-circle avatar-xs" alt="" />
-                                    </div>
-                                    <div class="col ms-2">
-                                        <span>Ted Hawkins</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="#" class="text-muted bookmark">
-                                            <i class="fe fe-bookmark  "></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Card -->
-                        <div class="card mb-4 card-hover">
-                            <a href="book-single.html" class="card-img-top"><img
-                                    src="../assets/images/book/book-angular.jpg" alt=""
-                                    class="card-img-top rounded-top-md" /></a>
-                            <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2"><a href="book-single.html"
-                                        class="text-inherit">Angular -
-                                        the complete guide for beginner</a></h4>
-                                <ul class="mb-3 list-inline">
-                                    <li class="list-inline-item"><i
-                                            class="mdi mdi-clock-time-four-outline text-muted me-1"></i>1h 30m</li>
-                                    <li class="list-inline-item">
-                                        <svg class="me-1 mt-n1" width="16" height="16"
-                                            viewBox="0
-                                        0 16 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="3" y="8" width="2" height="6" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="7" y="5" width="2" height="9" rx="1"
-                                                fill="#DBD8E9" />
-                                            <rect x="11" y="2" width="2" height="12" rx="1"
-                                                fill="#DBD8E9" />
-                                        </svg> Beginner
-                                    </li>
-                                </ul>
-                                <div class="lh-1">
-                                    <span>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning"></i>
-                                    </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(8,890)</span>
-                                </div>
-                            </div>
-                            <!-- Card footer -->
-                            <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <img src="../assets/images/avatar/avatar-3.jpg"
-                                            class="rounded-circle avatar-xs" alt="" />
-                                    </div>
-                                    <div class="col ms-2">
-                                        <span>Juanita Bell</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="#" class="text-muted bookmark">
-                                            <i class="fe fe-bookmark  "></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card mb-4 card-hover">
-                            <a href="book-single.html" class="card-img-top"><img
-                                    src="../assets/images/book/book-python.jpg" alt=""
-                                    class="card-img-top rounded-top-md" /></a>
-                            <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2"><a href="book-single.html"
-                                        class="text-inherit">The Python
-                                        book: build web application</a></h4>
-                                <ul class="mb-3 list-inline">
-                                    <li class="list-inline-item"><i
-                                            class="mdi mdi-clock-time-four-outline text-muted me-1"></i>2h 30m</li>
-                                    <li class="list-inline-item">
-                                        <svg class="me-1 mt-n1" width="16" height="16" viewBox="0 0 16 16"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="3" y="8" width="2" height="6" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="7" y="5" width="2" height="9" rx="1"
-                                                fill="#754FFE" />
-                                            <rect x="11" y="2" width="2" height="12" rx="1"
-                                                fill="#DBD8E9" />
-                                        </svg> Intermediate
-                                    </li>
-                                </ul>
-                                <div class="lh-1">
-                                    <span>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning me-n1"></i>
-                                        <i class="mdi mdi-star text-warning"></i>
-                                    </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(13,245)</span>
-                                </div>
-                            </div>
-                            <!-- Card footer -->
-                            <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <img src="../assets/images/avatar/avatar-4.jpg"
-                                            class="rounded-circle avatar-xs" alt="" />
-                                    </div>
-                                    <div class="col ms-2">
-                                        <span>Claire Robertson</span>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="#" class="text-muted bookmark">
-                                            <i class="fe fe-bookmark  "></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row d-md-flex align-items-center mb-4">
+                <div class="col-12">
+                    <h2 class="mb-0">Related Books</h2>
                 </div>
             </div>
+            <div class="row">
+                @forelse($relates as $related)
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Card -->
+                        <div class="card mb-4 card-hover">
+                            <a href="{{ route('book.show', $related) }}" class="card-img-top"><img
+                                    src="{{ asset($related->cover_path) }}" alt=""
+                                    class="card-img-top rounded-top-md" /></a>
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <h4 class="mb-2 text-truncate-line-2"><a
+                                        href="{{ route('book.show', $related) }}" class="text-inherit">
+                                        {{ Str::limit($related->title, 40) }}</a></h4>
+                                
+                                <div class="lh-1">
+
+                                    <span>
+                                        @for ($k = 1; $k <= round(\App\Models\Book::rating($related->id)[0], 0); $k++)
+                                            <i class="mdi mdi-star me-n1 text-warning"></i>
+                                        @endfor
+                                        @for ($k = 1; $k <= 5 - round(\App\Models\Book::rating($related->id)[0], 0); $k++)
+                                            <i class="mdi mdi-star me-n1 text-light"></i>
+                                        @endfor
+                                    </span>
+                                    <span
+                                        class="text-warning">{{ \App\Models\Book::rating($related->id)[0] }}</span>
+                                    <span
+                                        class="fs-6 text-muted">({{ \App\Models\Book::rating($related->id)[1] }})</span>
+                                </div>
+
+                            </div>
+                            <!-- Card footer -->
+                            <div class="card-footer">
+                                <div class="row align-items-center g-0">
+                                    
+                                    <div class="col ms-2">
+                                        <span>{{$related->author}}</span>
+                                    </div>
+{{-- enroll --}}
+                                    {{-- <div class="col-auto">
+
+                                        @auth
+                                            @if (App\Models\Enroll::where('Book_id', $related->id)->where('user_id', auth()->user()->id)->get()->count() > 0)
+                                                <a href="{{ route('Books.enroll', $related->id) }}"
+                                                    id="reset" class="removeBookmark">
+                                                    <i class="fas fa-bookmark "></i>
+                                                </a>
+                                            @endif
+                                            @if (App\Models\Enroll::where('Book_id', $related->id)->where('user_id', auth()->user()->id)->get()->count() == 0)
+                                                <a href="{{ route('Books.enroll', $related->id) }}"
+                                                    id="reset"
+                                                    wire:click.defer='enrolled({{ $related->id }})'
+                                                    class="text-dark bookmark">
+                                                    <i class="fe fe-bookmark  "></i>
+                                                </a>
+                                            @endif
+                                        @endauth
+                                        @guest
+                                            <a href="{{ route('login') }}" class="text-muted bookmark">
+                                                <i class="fe fe-bookmark  "></i>
+                                            </a>
+                                        @endguest
+
+                                    </div> --}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <span>No related Books<span>
+                @endforelse
+
+            </div>
+        </div>
         </div>
     </div>
 </x-app>

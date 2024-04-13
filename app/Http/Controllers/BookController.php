@@ -62,7 +62,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        // $relates = Book::inRandomOrder()->where('category_id',$book->category->id)->where('id','!=',$book->id)->get()->take(8);            
+        $relates = Book::inRandomOrder()->where('category_id',$book->category->id)->where('id','!=',$book->id)->get()->take(8);            
 
         $rat1 = Review::where('book_id',$book->id)->where('rating','=','1')->get();
         $rat2 = Review::where('book_id',$book->id)->where('rating','=','2')->get();
@@ -116,6 +116,7 @@ class BookController extends Controller
             'star5' => $star5,
             'student_review' => $student_review,
             's' => $s,
+            'relates' => $relates,
         ]);
     }
 
