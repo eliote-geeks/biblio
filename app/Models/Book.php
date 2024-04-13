@@ -44,14 +44,14 @@ class Book extends Model
         $rat4 = \App\Models\Review::where('book_id',$id)->where('rating','=','4')->get();
         $rat5 = \App\Models\Review::where('book_id',$id)->where('rating','=','5')->get();
         $rat = \App\Models\Review::where('book_id',$id)->get();
-        if($rat->count() == 0){    
+        if($rat->count() == 0){
             $student_review=0;
             $s=0;
         }
         else{
             $student_review = round((($rat1->count() * 1) + ($rat2->count() * 2) + ($rat3->count() * 3) + ($rat4->count() * 4) + ($rat5->count() * 5)) / $rat->count(),1);
             $s = $rat->count();
-        }    
+        }
         return ['0' => $student_review,
                 '1' => $s
                ];
@@ -63,5 +63,10 @@ class Book extends Model
 // >>>>>>> e53c6f7d775c9d2489c96154698affd13992f63e
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }
