@@ -12,7 +12,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+
+        return view('order.commande', compact('orders'));
+
     }
 
     /**
@@ -60,6 +63,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return to_route('order.index')->with('message' , 'Order deleted successfully');
     }
 }

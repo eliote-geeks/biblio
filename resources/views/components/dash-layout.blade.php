@@ -158,13 +158,13 @@
                                 aria-expanded="false"
                                 aria-controls="navProject"
                             >
-                                <i class="nav-icon fe fe-file me-2"></i> Project
+                                <i class="nav-icon fe fe-file me-2"></i> Orders
                             </a>
                                     <div id="navProject" class="collapse  " data-bs-parent="#sideNavbar">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link   " href="project-grid.html">
-                                            Grid
+                                                <a class="nav-link   " href="{{ route('order.index') }}">
+                                            List of orders
                                         </a>
                                             </li>
                                             <li class="nav-item">

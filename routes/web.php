@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EbookController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CategoryController;
@@ -34,6 +35,7 @@ Route::resource('student', StudentController::class);
 Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
 Route::resource('ebook', EbookController::class);
+Route::resource('order', OrderController::class);
 Route::get('/download-pdf/{ebook}', 'App\Http\Controllers\EbookController@show')->name('download.pdf');
 
 
