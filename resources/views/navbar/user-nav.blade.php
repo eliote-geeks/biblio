@@ -14,8 +14,8 @@
             <!-- List -->
             <ul class="list-unstyled ms-n2 mb-4">
                 <!-- Nav item -->
-                <li class="nav-item">
-                    <a class="nav-link" href="student-subscriptions.html"><i
+                <li class="nav-item {{ Request::routeIs('myBooks') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('myBooks') }}"><i
                             class="fe fe-calendar nav-icon"></i>My
                         Books</a>
                 </li>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('cover_path')->nullable();
             $table->string('title');
             $table->string('status');
+            $table->string('type')->nullable();
             $table->longText('description');
             $table->string('author');
             $table->integer('quantity')->default(0);

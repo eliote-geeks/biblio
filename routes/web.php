@@ -56,4 +56,5 @@ Route::middleware([
 Route::get('delete/user',[ProfileController::class,'deleteAccount'])->name('user.delete');
 Route::get('security/user',[ProfileController::class,'security'])->name('user.security');
 Route::post('update/profile',[ProfileController::class,'updateProfile'])->name('updateProfile');
+Route::get('my-books',[ProfileController::class,'myBooks'])->name('myBooks');
 });
