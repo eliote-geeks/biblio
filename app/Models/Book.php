@@ -12,12 +12,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Book extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'author',
+        'category_id',
+        'status',
+        'cover_path',
+        'quantity'
+
+    ];
 
     public function ebook()
     {
         return $this->HasOne(Ebook::class);
     }
 
+// <<<<<<< HEAD
     public function reviews()
     {
         return $this->hasMany(\App\Models\Review::class, 'book_id');
@@ -46,7 +57,10 @@ class Book extends Model
                ];
     }
 
-    public function category()
+    // public function category()
+// =======
+    public function category(): BelongsTo
+// >>>>>>> e53c6f7d775c9d2489c96154698affd13992f63e
     {
         return $this->belongsTo(Category::class);
     }
