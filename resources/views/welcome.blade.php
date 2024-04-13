@@ -28,7 +28,7 @@
                         <span class="icon-sahpe icon-lg bg-light-warning rounded-circle text-center text-dark-warning fs-4 "> <i
                 class="fe fe-video"> </i></span>
                         <div class="ms-3">
-                            <h4 class="mb-0 fw-semi-bold">30,000 online courses</h4>
+                            <h4 class="mb-0 fw-semi-bold">30,000 online books</h4>
                             <p class="mb-0">Enjoy a variety of fresh topics</p>
                         </div>
                     </div>
@@ -88,18 +88,20 @@
                             <a href="{{ route('book.show',$book) }}" class="card-img-top"><img src="{{$book->cover_path}}" alt="" class="rounded-top-md card-img-top"></a>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2 "><a href="pages/course-single.html" class="text-inherit">{{\Str::title($book->title)}}</a></h4>
+                                <h4 class="mb-2 text-truncate-line-2 "><a href="pages/book-single.html" class="text-inherit">{{\Str::title($book->title)}}</a></h4>
                                 <!-- List -->
                                 <div class="lh-1">
                                     <span>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning"></i>
-                  </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(7,700)</span>
+                                        @for ($k = 1 ; $k <= round(\App\Models\Book::rating($book->id)[0],0) ; $k++)
+                                        <i class="mdi mdi-star me-n1 text-warning"></i>
+                                        @endfor
+                                        @for ($k = 1 ; $k <= 5 - round(\App\Models\Book::rating($book->id)[0],0) ; $k++)
+                                        <i class="mdi mdi-star me-n1 text-light"></i>
+                                        @endfor
+                                          </span>
+                                    <span class="text-warning">{{\App\Models\Book::rating($book->id)[0]}}</span>
+                                    <span class="fs-6 text-muted">({{\App\Models\Book::rating($book->id)[1]}})</span>
+                        
                                 </div>
                                 <!-- Price -->
                                 <div class="lh-1 mt-3">
@@ -153,26 +155,28 @@
                 </ul>
                 <div class="sliderSecond">
 
-                    @forelse($ebooks as $e)
+            @forelse($ebooks as $e)
                     <div class="item">
                         <!-- Card -->
                         <div class="card  mb-4 card-hover">
                             <a href="{{ route('book.show',$e->book) }}" class="card-img-top"><img src="{{$e->book->cover_path}}" alt="" class="card-img-top rounded-top-md"></a>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2 "><a href="pages/course-single.html" class="text-inherit">{{$e->book->title}}</a></h4>
+                                <h4 class="mb-2 text-truncate-line-2 "><a href="pages/book-single.html" class="text-inherit">{{$e->book->title}}</a></h4>
                                 <!-- List -->
                                 
                                 <div class="lh-1">
                                     <span>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning me-n1"></i>
-                    <i class="mdi mdi-star text-warning"></i>
-                  </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(9,370)</span>
+                                        @for ($k = 1 ; $k <= round(\App\Models\Book::rating($e->book->id)[0],0) ; $k++)
+                                        <i class="mdi mdi-star me-n1 text-warning"></i>
+                                        @endfor
+                                        @for ($k = 1 ; $k <= 5 - round(\App\Models\Book::rating($e->book->id)[0],0) ; $k++)
+                                        <i class="mdi mdi-star me-n1 text-light"></i>
+                                        @endfor
+                                          </span>
+                                    <span class="text-warning">{{\App\Models\Book::rating($e->book->id)[0]}}</span>
+                                    <span class="fs-6 text-muted">({{\App\Models\Book::rating($e->book->id)[1]}})</span>
+                        
                                 </div>
                             </div>
                             <!-- Card Footer -->
@@ -186,8 +190,6 @@
                             </div>
                         </div>
                     </div>
-
-
             @empty
                 <span>empty</span>
             @endforelse
