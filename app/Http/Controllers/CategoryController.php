@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Category;
+use App\Models\Ebook;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -38,6 +40,10 @@ class CategoryController extends Controller
     {
         return view('category.category',[
             'category' => $category,
+            'books' => Book::where('category_id',$category->id)->get(),
+            'ebooks' => Ebook::withWhereHas('book', fn($query) =>
+            $query->where('category_id', $category->id)
+           )->get(),
         ]);
     }
 
