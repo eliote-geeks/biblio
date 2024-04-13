@@ -119,7 +119,7 @@
                                 </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="admin-students.html">Students</a
+                            <a class="nav-link " href="{{ route('student.index') }}">Students</a
                                 >
                             </li>
                         </ul>
