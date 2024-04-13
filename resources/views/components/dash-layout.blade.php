@@ -136,28 +136,13 @@
                         aria-expanded="false"
                         aria-controls="navCMS"
                     >
-                        <i class="nav-icon fe fe-book-open me-2"></i> CMS
+                        <i class="nav-icon fe fe-book-open me-2"></i> Ebooks
                     </a>
                             <div id="navCMS" class="collapse  " data-bs-parent="#sideNavbar">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link   active  " href="admin-cms-overview.html">
-                                    Overview
-                                </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link  " href="admin-cms-post.html">
-                                    All Post
-                                </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="admin-cms-post-new.html">
-                                    New Post
-                                </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="admin-cms-post-category.html">
-                                    Category
+                                        <a class="nav-link   active  " href="{{ route('ebook.index') }}">
+                                    All Ebooks
                                 </a>
                                     </li>
                                 </ul>

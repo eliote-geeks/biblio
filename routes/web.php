@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EbookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/', function() {
 
 Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
+Route::resource('ebook', EbookController::class);
 
 
 
