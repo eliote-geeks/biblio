@@ -44,7 +44,7 @@
                                         <th>Name</th>
                                         <th>book</th>
                                         <th>take on</th>
-                                        <th>bask on</th>
+                                        <th>back on</th>
                                         <th>status</th>
 
                                         <th></th>
