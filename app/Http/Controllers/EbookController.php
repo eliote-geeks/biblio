@@ -31,12 +31,10 @@ class EbookController extends Controller
      */
     public function store(Request $request)
     {
-        $bookId = $request->book;
-        $type = $request->type;
 
         $ebook = Ebook::create([
-            'book_id' => $bookId,
-            'type' => $type,
+            'book_id' => $request->book,
+            'type' => $request->type,
         ]);
 
         if ($request->file('path')) {
@@ -65,7 +63,9 @@ class EbookController extends Controller
      */
     public function show(Ebook $ebook)
     {
-        //
+        $filePath = storage_path('app/public/pdfs/' . $ebook);
+
+        return response()->download($filePath);
     }
 
     /**
@@ -82,6 +82,28 @@ class EbookController extends Controller
     public function update(Request $request, Ebook $ebook)
     {
         $ebook->update($request->all());
+
+        if ($request->hasFile('path')) {
+            $request->validate([
+                'path' => 'required|mimes:pdf|max:10240', // Maximum 10MB for PDF files
+            ]);
+
+            $pdfFile = $request->file('path');
+            $pdfFilename = $pdfFile->getClientOriginalName(); // Récupère le nom de fichier d'origine
+            $pdfPath = 'pdfs/' . $pdfFilename;
+
+            $pdfContent = file_get_contents($pdfFile);
+            Storage::disk('public')->put($pdfPath, $pdfContent);
+
+            // Supprimez l'ancien PDF s'il existe
+            if ($ebook->path) {
+                Storage::disk('public')->delete($ebook->path);
+            }
+
+            $ebook->update([
+                'path' => $pdfPath,
+            ]);
+        }
 
         return to_route('ebook.index')->with('message', 'Ebook updated successfully');
     }

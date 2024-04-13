@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Ebook extends Book
 {
     use HasFactory;
-    protected $fillables = ['book_id','path','type'];
+    protected $fillable = ['book_id','path','type'];
 
     public function book()
     {

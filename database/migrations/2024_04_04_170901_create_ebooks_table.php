@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('ebooks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('book_id')->default(1);
             $table->foreignId('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->string('path');
+            $table->string('path')->nullable();
             $table->string('type');
             $table->timestamps();
+
         });
     }
 

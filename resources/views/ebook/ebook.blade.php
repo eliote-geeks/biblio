@@ -44,9 +44,9 @@
                                         <th>Ebook Cover \ Description</th>
                                         <th>Titre</th>
                                         <th>Auteur</th>
-                                        <th>Visualer</th>
+                                        <th>telecharger</th>
                                         <th>Status</th>
-                                        <th>Telecharger</th>
+                                        <th>Visualer</th>
                                         <th>action</th>
 
 
@@ -71,7 +71,7 @@
                                             </td>
                                             <td>{{ $ebook->book->title }}</td>
                                             <td>{{ $ebook->book->author }}</td>
-                                            <td>{{ $ebook->book->quantity }}</td>
+                                            <td><a href="{{ asset('storage/' . $ebook->path) }}" class="btn btn-primary mt-3">PDF</a></td>
                                             @if ($ebook->book->status === 'on')
                                                 <td class="align-middle border-top-0">
                                                     <span class="badge-dot bg-success"></span>
@@ -82,7 +82,11 @@
                                                 </td>
                                             @endif
 
-                                            <td>{{ $ebook->book->category->name }}</td>
+                                            <td>
+
+                                                {{-- <embed src="{{ asset('storage/' . $ebook->path) }}" type="application/pdf" width="100%" height="600px" /> --}}
+
+                                                    <a href="{{ route('download.pdf', ['ebook' => $ebook->path]) }}" class="btn btn-outline-warning mt-3" type="blank">PDF</a></td>
                                             <td class="text-muted align-middle border-top-0">
                                                 <span class="dropdown dropstart">
                                                     <a class="btn-icon btn btn-ghost btn-sm rounded-circle"

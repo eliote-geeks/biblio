@@ -21,7 +21,7 @@ class Category extends Model
     // }
 
     // =======
-    // protected $fillable =['name'];
+    protected $fillable =['name'];
 
     public function book(): HasMany
     {

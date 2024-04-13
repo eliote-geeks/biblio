@@ -33,6 +33,8 @@ Route::get('/', function() {
 Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
 Route::resource('ebook', EbookController::class);
+Route::get('/download-pdf/{ebook}', 'App\Http\Controllers\EbookController@show')->name('download.pdf');
+
 
 
 
