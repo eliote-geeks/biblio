@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('date_take');
             $table->timestamp('date_back');
-            $table->string('status');
+            $table->string('status')->default('wait');
             $table->timestamps();
         });
     }
