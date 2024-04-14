@@ -45,7 +45,7 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="assets/css/theme.min.css">
-    <title>Dashboard | Geeks - Bootstrap 5 Admin Dashboard Template</title>
+    <title>Dashboard | Geeks - Admin Dashboard </title>
 </head>
 
 <body>
@@ -62,25 +62,10 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">
-                <a class="nav-link  " href="#" data-bs-toggle="collapse" data-bs-target="#navDashboard" aria-expanded="false" aria-controls="navDashboard">
+                <a class="nav-link  " href="{{ route('dashboard') }}" >
                     <i class="nav-icon fe fe-home me-2"></i> Dashboard
                 </a>
-                <div id="navDashboard" class="collapse  show " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item ">
-                            <a class="nav-link  active " href="admin-dashboard.html">
-                                    Overview
-                                </a>
-                        </li>
-                        <!-- Nav item -->
-                        <li class="nav-item ">
-                            <a class="nav-link " href="dashboard-analytics.html">
-                                    Analytics
 
-                                </a>
-                        </li>
-                    </ul>
-                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse" data-bs-target="#navCourses" aria-expanded="false" aria-controls="navCourses">
