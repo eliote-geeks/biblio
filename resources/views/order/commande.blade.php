@@ -57,15 +57,19 @@
                                         <tr>
                                             <td>{{ $order->id }}</td>
                                             <td>{{ $order->user->name }}</td>
-                                            <td>{{ $order->book->title  }}</td>
+                                            <td>{{ $order->book->title }}</td>
                                             <td>{{ $order->date_take }}</td>
                                             <td>{{ $order->date_back }}</td>
-                                            <td>{{ $order->status }}</td>
+                                            <td><button class="btn btn-outline-warning"> {{ $order->status }}</button>
+                                            </td>
+
 
                                             <td class="align-middle border-top-0">
-                                                <a href="#" class="fe fe-mail text-muted" data-bs-toggle="tooltip"
-                                                    data-placement="top" title="Message">
-                                                </a>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModa{{ $order->id }}">
+                                                    Confirm
+                                                </button>
+
                                             </td>
                                             <form action="{{ route('order.destroy', $order->id) }}" method="POST">
                                                 @csrf
@@ -77,6 +81,35 @@
                                                 </td>
                                             </form>
                                         </tr>
+
+
+                                        <div class="modal fade" id="exampleModa{{ $order->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabe" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <form action="{{ route('order.accept', $order->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabe">Confirm
+                                                                this
+                                                                action {{ $order->id }} </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure want to borrow this book ?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     @endforeach
 
                                 </tbody>
@@ -153,15 +186,19 @@
                                         <tr>
                                             <td>{{ $order->id }}</td>
                                             <td>{{ $order->user->name }}</td>
-                                            <td>{{ $order->book->title  }}</td>
+                                            <td>{{ $order->book->title }}</td>
                                             <td>{{ $order->date_take }}</td>
                                             <td>{{ $order->date_back }}</td>
-                                            <td>{{ $order->status }}</td>
+                                            <td><button class="btn btn-outline-primary">
+                                                    {{ $order->status }}</button></td>
 
                                             <td class="align-middle border-top-0">
-                                                <a href="#" class="fe fe-mail text-muted" data-bs-toggle="tooltip"
-                                                    data-placement="top" title="Message">
-                                                </a>
+
+                                                <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#borrow{{ $order->id }}">
+                                                    Confirm
+                                                </button>
+
                                             </td>
                                             <form action="{{ route('order.destroy', $order->id) }}" method="POST">
                                                 @csrf
@@ -173,6 +210,32 @@
                                                 </td>
                                             </form>
                                         </tr>
+                                        <div class="modal fade" id="borrow{{ $order->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabe" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <form action="{{ route('order.received', $order->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="borrow">Confirm this
+                                                                action {{ $order->id }} </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure this studend has gived back this book?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     @endforeach
 
                                 </tbody>
@@ -182,13 +245,10 @@
                     </div>
 
                 </div>
-
-
-
-
-
             </div>
-
         </div>
     </div>
+
+    <!-- Modal -->
+
 </x-dash-layout>

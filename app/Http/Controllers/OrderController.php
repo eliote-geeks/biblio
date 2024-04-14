@@ -26,6 +26,21 @@ class OrderController extends Controller
     {
         //
     }
+    public function accept(Order $order)
+    {
+        $order->status = 'accept';
+        $order->save();
+
+        return redirect()->route('order.index');
+    }
+
+    public function received(Order $order)
+    {
+        $order->status = 'wait';
+        $order->save();
+
+        return redirect()->route('order.index');
+    }
 
     /**
      * Store a newly created resource in storage.

@@ -36,6 +36,9 @@ Route::resource('book',BookController::class);
 Route::resource('category',CategoryController::class);
 Route::resource('ebook', EbookController::class);
 Route::resource('order', OrderController::class);
+Route::post('/order-accepted/{order}',[OrderController::class,'accept'])->name('order.accept');
+Route::post('/order-received/{order}',[OrderController::class,'received'])->name('order.received');
+
 Route::get('/download-pdf/{ebook}', 'App\Http\Controllers\EbookController@show')->name('download.pdf');
 
 
