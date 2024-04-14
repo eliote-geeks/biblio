@@ -29,6 +29,7 @@ class OrderController extends Controller
     public function accept(Order $order)
     {
         $order->status = 'accept';
+        $order->date_take = now();
         $order->save();
 
         return redirect()->route('order.index');
@@ -36,7 +37,7 @@ class OrderController extends Controller
 
     public function received(Order $order)
     {
-        $order->status = 'wait';
+        $order->status = 'done';
         $order->save();
 
         return redirect()->route('order.index');

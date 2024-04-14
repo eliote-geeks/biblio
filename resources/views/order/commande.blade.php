@@ -43,8 +43,8 @@
                                         <th>id</th>
                                         <th>Name</th>
                                         <th>book</th>
-                                        <th>take on</th>
-                                        <th>back on</th>
+                                        <th>order created on</th>
+                                        {{-- <th>back on</th> --}}
                                         <th>status</th>
 
                                         <th></th>
@@ -58,8 +58,8 @@
                                             <td>{{ $order->id }}</td>
                                             <td>{{ $order->user->name }}</td>
                                             <td>{{ $order->book->title }}</td>
-                                            <td>{{ $order->date_take }}</td>
-                                            <td>{{ $order->date_back }}</td>
+                                            <td>{{ $order->created_at }}</td>
+                                            {{-- <td>{{ $order->date_back }}</td> --}}
                                             <td><button class="btn btn-outline-warning"> {{ $order->status }}</button>
                                             </td>
 
@@ -71,15 +71,14 @@
                                                 </button>
 
                                             </td>
-                                            <form action="{{ route('order.destroy', $order->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
+                                          
                                                 <td class="align-middle border-top-0">
-                                                    <button type="submit" class="text-muted" data-bs-toggle="tooltip"
-                                                        data-placement="top" title="Delete"><i
-                                                            class="fe fe-trash"></i></button>
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#delete{{ $order->id }}">
+                                                    delete
+                                                </button>
                                                 </td>
-                                            </form>
+                                           
                                         </tr>
 
 
@@ -99,6 +98,34 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             Are you sure want to borrow this book ?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="delete{{ $order->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabe" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <form action="{{ route('order.destroy', $order->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabe">Confirm
+                                                                this
+                                                                action {{ $order->id }} </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure want to delete this order ?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -200,15 +227,7 @@
                                                 </button>
 
                                             </td>
-                                            <form action="{{ route('order.destroy', $order->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <td class="align-middle border-top-0">
-                                                    <button type="submit" class="text-muted" data-bs-toggle="tooltip"
-                                                        data-placement="top" title="Delete"><i
-                                                            class="fe fe-trash"></i></button>
-                                                </td>
-                                            </form>
+                                           
                                         </tr>
                                         <div class="modal fade" id="borrow{{ $order->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabe" aria-hidden="true">
