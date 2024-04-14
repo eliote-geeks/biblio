@@ -7,7 +7,7 @@
         <div class="col-lg-12 col-md-12 col-12">
           <div>
             <h1 class="text-white mb-1 display-4">{{ $category->name }}</h1>
-            <p class="mb-0 text-white lead">{{ $category->book->count() + $ebooks->count()}} books in {{ $category->name }}.</p>
+            <p class="mb-0 text-white lead">{{ $books->count() + $ebooks->count()}} books in {{ $category->name }}.</p>
           </div>
         </div>
       </div>

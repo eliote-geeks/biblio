@@ -12,9 +12,15 @@
                                 JavaScript is the popular programming language which powers web pages and web applications. This book will get you started coding in JavaScript.
                             </p> --}}
                         <div class="d-flex align-items-center">
+                            @if ($book->type == 'book')
                             <a href="#" class="bookmark text-white text-decoration-none">
                                 <i class="fe fe-bookmark text-white-50 me-2"></i>Enroll
                             </a>
+                            @else
+                            <a href="#" class="bookmark text-white text-decoration-none">
+                                <i class="fe fe-bookmark text-white-50 me-2"></i>Read
+                            </a>
+                            @endif
 
                             <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> 1200 Enrolled </span>
                             <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> {{ $book->quantity }}
@@ -412,7 +418,11 @@
                             <!-- Price single page -->
 
                             <div class="d-grid">
+                                @if ($book->type == 'book')
                                 <a href="pricing.html" class="btn btn-outline-primary">Enroll</a>
+                                @else
+                                <a href="pricing.html" class="btn btn-outline-primary">Read</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -437,13 +447,13 @@
                                 </div>
                                 <div class="col border-start">
                                     <div class="pe-1 ps-3 py-3">
-                                        <h5 class="mb-0">32</h5>
+                                        <h5 class="mb-0">{{ \App\Models\Book::where('author',$book->author)->count() }}</h5>
                                         <span>Book</span>
                                     </div>
                                 </div>
                                 <div class="col border-start">
                                     <div class="pe-1 ps-3 py-3">
-                                        <h5 class="mb-0">12,230</h5>
+                                        <h5 class="mb-0">{{ $book->reviews->count() }}</h5>
                                         <span>Reviews</span>
                                     </div>
                                 </div>

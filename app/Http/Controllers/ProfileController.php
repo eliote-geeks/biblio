@@ -45,4 +45,9 @@ class ProfileController extends Controller
         return redirect()->back()->with('message','informations updated successfully !!');
 
     }
+
+    public function myBooks()
+    {
+        return view('profile.my-books');
+    }
 }
