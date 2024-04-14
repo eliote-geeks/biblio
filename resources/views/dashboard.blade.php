@@ -101,17 +101,17 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
                                     <div>
-                                        <span class="fs-6 text-uppercase fw-semi-bold">Instructor</span>
+                                        <span class="fs-6 text-uppercase fw-semi-bold">pendind orders</span>
                                     </div>
                                     <div>
                                         <span class=" fe fe-user-check fs-3 text-primary"></span>
                                     </div>
                                 </div>
                                 <h2 class="fw-bold mb-1">
-                                    22,786
+                                    {{ \App\Models\Order::where('status', 'wait')->count() }}
                                 </h2>
                                 <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+200</span>
-                                <span class="ms-1 fw-medium">Instructor</span>
+                                <span class="ms-1 fw-medium">Orders </span>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                             <!-- Card header -->
                             <div class="card-header align-items-center card-header-height d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h4 class="mb-0">Earnings</h4>
+                                    <h4 class="mb-0">Books by month</h4>
                                 </div>
                                 <div>
                                     <div class="dropdown dropstart">
@@ -145,7 +145,9 @@
                             <!-- Card body -->
                             <div class="card-body">
                                 <!-- Earning chart -->
-                                <div id="earning" class="apex-charts"></div>
+                                {{-- <div id="earning" class="apex-charts"></div> --}}
+                                <div>
+                                    {!! $chart1->renderHtml() !!}</div>
                             </div>
                         </div>
                     </div>
@@ -155,7 +157,7 @@
                             <!-- Card header -->
                             <div class="card-header align-items-center card-header-height  d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h4 class="mb-0">Traffic</h4>
+                                    <h4 class="mb-0">Orders by month</h4>
                                 </div>
                                 <div>
                                     <div class="dropdown dropstart">
@@ -176,7 +178,10 @@
                             </div>
                             <!-- Card body -->
                             <div class="card-body">
-                                <div id="traffic" class="apex-charts d-flex justify-content-center"></div>
+                                {{-- <div id="traffic" class="apex-charts d-flex justify-content-center"></div>
+                                 --}}
+                                 <div>
+                                    {!! $chart2->renderHtml() !!}</div>
                             </div>
                         </div>
                     </div>
@@ -185,5 +190,9 @@
             </div>
         </div>
     </div>
+    {!! $chart1->renderChartJsLibrary() !!}
+    {!! $chart1->renderJs() !!}
 
+    {!! $chart2->renderChartJsLibrary() !!}
+    {!! $chart2->renderJs() !!}
 </x-dash-layout>
