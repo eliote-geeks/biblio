@@ -12,9 +12,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::where('status', 'wait')->get();
+        $ordersAccepted = Order::whereIn('status', ['accept','received','collect'])->get();
 
-        return view('order.commande', compact('orders'));
+        return view('order.commande', compact('orders','ordersAccepted'));
 
     }
 

@@ -6,7 +6,7 @@
                 <!-- Page header -->
                 <div class="border-bottom pb-4 mb-4">
                     <div>
-                        <h1 class="mb-1 h2 fw-bold"> List Of Oders Pending</h1>
+                        <h1 class="mb-1 h2 fw-bold"> List Of Pending Orders</h1>
                         <!-- Breadcrumb -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -32,7 +32,7 @@
                     <div class="card">
                         <!-- card header  -->
                         <div class="card-header border-bottom-0">
-                            <h4 class="mb-1">Oders Pending</h4>
+                            <h4 class="mb-1"> Pending Oders</h4>
 
                         </div>
                         <!-- table  -->
@@ -102,7 +102,7 @@
                 <!-- Page header -->
                 <div class="border-bottom pb-4 mb-4">
                     <div>
-                        <h1 class="mb-1 h2 fw-bold"> List Of Oders Accepted </h1>
+                        <h1 class="mb-1 h2 fw-bold"> List Of Accepted Orders </h1>
                         <!-- Breadcrumb -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -111,7 +111,7 @@
                                 </li>
 
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Order
+                                    Orders
                                 </li>
                             </ol>
                         </nav>
@@ -128,7 +128,7 @@
                     <div class="card">
                         <!-- card header  -->
                         <div class="card-header border-bottom-0">
-                            <h4 class="mb-1">Oders Accepted </h4>
+                            <h4 class="mb-1"> Accepted Orders </h4>
 
                         </div>
                         <!-- table  -->
@@ -149,7 +149,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orders as $order)
+                                    @foreach ($ordersAccepted as $order)
                                         <tr>
                                             <td>{{ $order->id }}</td>
                                             <td>{{ $order->user->name }}</td>
