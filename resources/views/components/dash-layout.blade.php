@@ -50,25 +50,30 @@
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
                     <li class="nav-item">
-                        <a class="nav-link  " href="{{ route('dashboard') }}">
+                        <a class="nav-link @if (request()->routeIs('dashboard')) active @endif"
+                            href="{{ route('dashboard') }}">
                             <i class="nav-icon fe fe-home me-2"></i> Dashboard
                         </a>
 
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navCourses" aria-expanded="false" aria-controls="navCourses">
+                        <a class="nav-link  collapsed @if (request()->routeIs(['category.index', 'book.index'])) active @endif " href="#"
+                            data-bs-toggle="collapse" data-bs-target="#navCourses" aria-expanded="false"
+                            aria-controls="navCourses">
                             <i class="nav-icon fe fe-book me-2"></i> Books
                         </a>
                         <div id="navCourses" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="{{ route('category.index') }}">
+                                    <a class="nav-link @if (request()->routeIs('category.index')) active @endif "
+                                        href="{{ route('category.index') }}">
                                         All Category
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="{{ route('book.index') }}">
+                                    <a class="nav-link @if (request()->routeIs('book.index')) active @endif"
+                                        href="{{ route('book.index') }}">
                                         All Books
                                     </a>
                                 </li>
@@ -82,8 +87,9 @@
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link   collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navProfile" aria-expanded="false" aria-controls="navProfile">
+                        <a class="nav-link   collapsed @if (request()->routeIs('student.index')) active @endif " href="#"
+                            data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false"
+                            aria-controls="navProfile">
                             <i class="nav-icon fe fe-user me-2"></i> User
                         </a>
                         <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
@@ -102,8 +108,9 @@
 
                     <!-- Nav item -->
                     <li class="nav-item ">
-                        <a class="nav-link   collapsed  " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navCMS" aria-expanded="false" aria-controls="navCMS">
+                        <a class="nav-link   collapsed @if (request()->routeIs('ebook.index')) active @endif  " href="#"
+                            data-bs-toggle="collapse" data-bs-target="#navCMS" aria-expanded="false"
+                            aria-controls="navCMS">
                             <i class="nav-icon fe fe-book-open me-2"></i> Ebooks
                         </a>
                         <div id="navCMS" class="collapse  " data-bs-parent="#sideNavbar">
@@ -118,8 +125,9 @@
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item ">
-                        <a class="nav-link   collapsed  " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navProject" aria-expanded="false" aria-controls="navProject">
+                        <a class="nav-link   collapsed @if (request()->routeIs('order.index')) active @endif  "
+                            href="#" data-bs-toggle="collapse" data-bs-target="#navProject"
+                            aria-expanded="false" aria-controls="navProject">
                             <i class="nav-icon fe fe-file me-2"></i> Orders
                         </a>
                         <div id="navProject" class="collapse  " data-bs-parent="#sideNavbar">
@@ -286,7 +294,7 @@
                     </div>
                     <!--Navbar nav -->
                     <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
-                     
+
                         <!-- List -->
                         <li class="dropdown ms-2">
                             <a class="rounded-circle" href="#" role="button" id="dropdownUser"
