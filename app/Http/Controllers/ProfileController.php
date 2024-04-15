@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use PharIo\Manifest\Author;
 
 class ProfileController extends Controller
 {
@@ -48,6 +53,50 @@ class ProfileController extends Controller
 
     public function myBooks()
     {
-        return view('profile.my-books');
+
+        $books = DB::table('books')
+        ->leftJoin('orders','orders.book_id','=','books.id')
+        ->selectRaw('books.*')
+        ->where('orders.user_id','=',Auth::user()->id)
+        ->where('orders.status','=','wait')
+        ->get();
+
+        $booksOK = DB::table('books')
+        ->leftJoin('orders','orders.book_id','=','books.id')
+        ->selectRaw('books.*, orders.date_take date_take, orders.date_back date_back')
+        ->where('orders.user_id','=',Auth::user()->id)
+        ->where('orders.status','=','collect')
+        ->get();
+        return view('profile.my-books',compact('books','booksOK'));
+    }
+
+    public function enrollBook(Book $book)
+    {
+        return view('book.enroll',compact('book'));
+    }
+
+    public function enrollBookPost(Request $request, $book)
+    {
+        $request->validate([
+            'dateTake' => 'required|date',
+            'dateBack' => 'required|date|after:dateTake'
+        ]);
+        $order = new Order();
+        $order->book_id = $book;
+        $order->user_id = auth()->user()->id;
+        $order->date_take = $request->dateTake;
+        $order->date_back = $request->dateBack;
+        $order->status = 'wait';
+        $order->save();
+        return redirect()->route('myBooks');
+    }
+
+    public function removeMyBook($id)
+    {
+        Order::where([
+            'user_id' => auth()->user()->id,
+            'book_id' => $id,
+        ])->firstOrFail()->delete();
+        return redirect()->back()->with('message','deleted !!');
     }
 }

@@ -17,9 +17,9 @@
                                 <i class="fe fe-bookmark text-white-50 me-2"></i>Enroll
                             </a>
                             @else
-                            <a href="#" class="bookmark text-white text-decoration-none">
+                            {{-- <a href="#" class="bookmark text-white text-decoration-none">
                                 <i class="fe fe-bookmark text-white-50 me-2"></i>Read
-                            </a>
+                            </a> --}}
                             @endif
 
                             <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> 1200 Enrolled </span>
@@ -419,9 +419,11 @@
 
                             <div class="d-grid">
                                 @if ($book->type == 'book')
-                                <a href="pricing.html" class="btn btn-outline-primary">Enroll</a>
+                                <a href="{{ route('enrollBook',$book) }}" class="btn btn-outline-primary">Enroll</a>
+                                @elseif($book->type == 'ebook')
+                                <a href="{{ \App\Models\Ebook::where('book_id',$book->id)->path }}" __target='blank' class="btn btn-outline-primary">Read</a>
                                 @else
-                                <a href="pricing.html" class="btn btn-outline-primary">Read</a>
+                                
                                 @endif
                             </div>
                         </div>

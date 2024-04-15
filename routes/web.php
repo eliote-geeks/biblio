@@ -57,4 +57,7 @@ Route::get('delete/user',[ProfileController::class,'deleteAccount'])->name('user
 Route::get('security/user',[ProfileController::class,'security'])->name('user.security');
 Route::post('update/profile',[ProfileController::class,'updateProfile'])->name('updateProfile');
 Route::get('my-books',[ProfileController::class,'myBooks'])->name('myBooks');
+Route::get('enroll-book/{book}',[ProfileController::class,'enrollBook'])->name('enrollBook');
+Route::post('enroll-book/{book}',[ProfileController::class,'enrollBookPost'])->name('enrollBookPost');
+Route::get('remove/book/{id}',[ProfileController::class,'removeMyBook'])->name('removeMyBook');
 });
