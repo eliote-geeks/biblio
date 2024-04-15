@@ -12,14 +12,8 @@
         content="Geeks is a fully responsive and yet modern premium bootstrap 5 template & snippets. Geek is feature-rich components and beautifully designed pages that help you create the best possible website and web application projects. Bootstrap Snippet " />
     <meta name="keywords"
         content="Geeks UI, bootstrap, bootstrap 5, Course, Sass, landing, Marketing, admin themes, bootstrap admin, bootstrap dashboard, ui kit, web app, multipurpose" />
-
-
-
-
     <!-- Favicon icon-->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
-
-
     <!-- Libs CSS -->
     <link href="assets/fonts/feather/feather.css" rel="stylesheet">
     <link href="assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
@@ -36,15 +30,6 @@
     <link href="assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
     <link href="assets/libs/nouislider/dist/nouislider.min.css" rel="stylesheet">
     <link href="assets/libs/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-
-
-
-
-
-
-
-
-
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/css/theme.min.css">
@@ -87,11 +72,11 @@
                                         All Books
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link " href="admin-course-category-single.html">
                                         Category Single
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>
@@ -140,70 +125,15 @@
                         <div id="navProject" class="collapse  " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link   " href="{{ route('order.index') }}">
+                                    <a class="nav-link" href="{{ route('order.index') }}">
                                         List of orders
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="project-list.html">
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="project-list.html">
                                         List
                                     </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link   collapsed  " href="#" data-bs-toggle="collapse"
-                                        data-bs-target="#navprojectSingle" aria-expanded="false"
-                                        aria-controls="navprojectSingle">
-
-                                        Single
-                                    </a>
-                                    <div id="navprojectSingle" class="collapse " data-bs-parent="#navProject">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link  active " href="project-overview.html">
-                                                    Overview
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="project-task.html">
-                                                    Task
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="project-budget.html">
-                                                    Budget
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="project-team.html">
-                                                    Team
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="project-files.html">
-                                                    Files
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="project-summary.html">
-                                                    Summary
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="add-project.html">
-                                        Create Project
-                                    </a>
-                                </li>
-
-
-
-
-
-
-
+                                </li> --}}
 
 
                             </ul>
@@ -246,110 +176,8 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navecommerce" aria-expanded="false" aria-controls="navecommerce">
-                            <i class="nav-icon fe fe-shopping-bag me-2"></i> Ecommerce <span
-                                class="badge bg-primary ms-1"> New </span>
-                        </a>
-                        <div id="navecommerce" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link   collapsed  " href="#" data-bs-toggle="collapse"
-                                        data-bs-target="#navproduct" aria-expanded="false"
-                                        aria-controls="navproduct">
-
-                                        Product
-                                    </a>
-                                    <div id="navproduct" class="collapse " data-bs-parent="#navProduct">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="ecommerce/product-grid.html">Grid</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link "
-                                                    href="ecommerce/product-grid-with-sidebar.html">Grid Sidebar</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="ecommerce/products.html">Products</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="ecommerce/product-single.html">Product
-                                                    Single</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="ecommerce/product-single-v2.html">Product
-                                                    Single v2</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link  " href="ecommerce/add-product.html">Add
-                                                    Product</a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/shopping-cart.html">Shopping Cart</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/checkout.html">Checkout</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/order.html">Order</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/order-single.html">Order Single</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/order-history.html">Order History</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/order-summary.html">Order Summary</a>
-                                </li>
 
 
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/customers.html">Customers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/customer-single.html">Customer Single</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="ecommerce/add-customer.html">Add Customer</a>
-                                </li>
-
-
-
-
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navlayouts" aria-expanded="false" aria-controls="navlayouts">
-                            <i class="nav-icon fe fe-layout me-2"></i> Layouts
-                        </a>
-                        <div id="navlayouts" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="layouts/layout-horizontal.html">Top</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link " href="layouts/layout-compact.html">
-                                        Compact
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="layouts/layout-vertical.html">Vertical</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
                     <!-- Nav item -->
                     <li class="nav-item">
                         <div class="nav-divider"></div>
@@ -365,27 +193,9 @@
 
                         </a>
                     </li>
+
                     <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link " href="task-kanban.html">
-                            <i class="nav-icon mdi mdi-trello me-2"></i>
-                            Task
-                        </a>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link " href="mail.html">
-                            <i class="nav-icon mdi mdi-email-outline me-2"></i>
-                            Mail
-                        </a>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link " href="calendar.html">
-                            <i class="nav-icon mdi mdi-calendar me-2"></i>
-                            Calendar
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <div class="nav-divider"></div>
                     </li>
@@ -394,35 +204,9 @@
                         <div class="navbar-heading">Components</div>
                     </li>
                     <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navTables" aria-expanded="false" aria-controls="navTables">
-                            <i class="nav-icon fe fe-database me-2"></i> Tables
-                        </a>
-                        <div id="navTables" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="basic-table.html">
-                                        Basic
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="datatables.html">
-                                        Data Tables
-                                    </a>
-                                </li>
 
-                            </ul>
-                        </div>
-                    </li>
                     <!-- Nav item -->
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link " href="../help-center.html">
-                            <i class="nav-icon fe fe-help-circle me-2"></i> Help Center
 
-                        </a>
-                    </li>
                     <!-- Nav item -->
                     <li class="nav-item">
                         <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
@@ -464,89 +248,11 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navMenuLevel" aria-expanded="false" aria-controls="navMenuLevel">
-                            <i class="nav-icon fe fe-corner-left-down me-2"></i> Menu Level
-                        </a>
-                        <div id="navMenuLevel" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="#" data-bs-toggle="collapse"
-                                        data-bs-target="#navMenuLevelSecond" aria-expanded="false"
-                                        aria-controls="navMenuLevelSecond">
-                                        Two Level
-                                    </a>
-                                    <div id="navMenuLevelSecond" class="collapse" data-bs-parent="#navMenuLevel">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="#">NavItem 1</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="#">NavItem 2</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  collapsed  " href="#" data-bs-toggle="collapse"
-                                        data-bs-target="#navMenuLevelThree" aria-expanded="false"
-                                        aria-controls="navMenuLevelThree">
-                                        Three Level
-                                    </a>
-                                    <div id="navMenuLevelThree" class="collapse " data-bs-parent="#navMenuLevel">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link  collapsed " href="#"
-                                                    data-bs-toggle="collapse" data-bs-target="#navMenuLevelThreeOne"
-                                                    aria-expanded="false" aria-controls="navMenuLevelThreeOne">
-                                                    NavItem 1
-                                                </a>
-                                                <div id="navMenuLevelThreeOne" class="collapse collapse "
-                                                    data-bs-parent="#navMenuLevelThree">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link " href="#">
-                                                                NavChild Item 1
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " href="#">Nav Item 2</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <div class="nav-divider"></div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <div class="navbar-heading">Documentation</div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../docs/index.html">
-                            <i class="nav-icon fe fe-clipboard me-2"></i> Documentation
-                        </a>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../docs/changelog.html">
-                            <i class="nav-icon fe fe-git-pull-request me-2"></i> Changelog
-                            <span class="badge bg-primary ms-2">2.5.0</span>
-                        </a>
-                    </li>
+
+
                 </ul>
                 <!-- Card -->
-                <div class="card bg-dark-primary shadow-none text-center mx-4 my-8">
+                {{-- <div class="card bg-dark-primary shadow-none text-center mx-4 my-8">
                     <div class="card-body py-6">
                         <img src="assets/images/background/giftbox.png" alt="" />
                         <div class="mt-4">
@@ -557,7 +263,7 @@
                             <a href="#" class="btn btn-white btn-sm mt-2">Upgrade Now</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </nav>
         <!-- Page Content -->
@@ -580,165 +286,7 @@
                     </div>
                     <!--Navbar nav -->
                     <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
-                        <li class="dropdown stopevent">
-                            <a class="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted"
-                                href="#" role="button" id="dropdownNotification" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fe fe-bell"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg"
-                                aria-labelledby="dropdownNotification">
-                                <div>
-                                    <div
-                                        class="border-bottom px-3 pb-3 d-flex justify-content-between align-items-center">
-                                        <span class="h4 mb-0">Notifications</span>
-                                        <a href="# " class="text-muted">
-                                            <span class="align-middle">
-                                                <i class="fe fe-settings me-1"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <!-- List group -->
-                                    <ul class="list-group list-group-flush" data-simplebar style="max-height: 300px;">
-                                        <li class="list-group-item bg-light">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="text-body" href="#">
-                                                        <div class="d-flex">
-                                                            <img src="assets/images/avatar/avatar-1.jpg"
-                                                                alt="" class="avatar-md rounded-circle" />
-                                                            <div class="ms-3">
-                                                                <h5 class="fw-bold mb-1">Kristin Watson:</h5>
-                                                                <p class="mb-3">
-                                                                    Krisitn Watsan like your comment on course
-                                                                    Javascript Introduction!
-                                                                </p>
-                                                                <span class="fs-6 text-muted">
-                                                                    <span><span
-                                                                            class="fe fe-thumbs-up text-success me-1"></span>2
-                                                                        hours ago,</span>
-                                                                    <span class="ms-1">2:19 PM</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto text-center me-2">
-                                                    <a href="#" class="badge-dot bg-info"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Mark as read">
-                                                    </a>
-                                                    <div>
-                                                        <a href="#" class="bg-transparent"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Remove">
-                                                            <i class="fe fe-x text-muted"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="text-body" href="#">
-                                                        <div class="d-flex">
-                                                            <img src="assets/images/avatar/avatar-2.jpg"
-                                                                alt="" class="avatar-md rounded-circle" />
-                                                            <div class="ms-3">
-                                                                <h5 class="fw-bold mb-1">Brooklyn Simmons</h5>
-                                                                <p class="mb-3">
-                                                                    Just launched a new Courses React for Beginner.
-                                                                </p>
-                                                                <span class="fs-6 text-muted">
-                                                                    <span><span
-                                                                            class="fe fe-thumbs-up text-success me-1"></span>Oct
-                                                                        9,</span>
-                                                                    <span class="ms-1">1:20 PM</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto text-center me-2">
-                                                    <a href="#" class="badge-dot bg-secondary"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Mark as unread">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="text-body" href="#">
-                                                        <div class="d-flex">
-                                                            <img src="assets/images/avatar/avatar-3.jpg"
-                                                                alt="" class="avatar-md rounded-circle" />
-                                                            <div class="ms-3">
-                                                                <h5 class="fw-bold mb-1">Jenny Wilson</h5>
-                                                                <p class="mb-3">
-                                                                    Krisitn Watsan like your comment on course
-                                                                    Javascript Introduction!
-                                                                </p>
-                                                                <span class="fs-6 text-muted">
-                                                                    <span><span
-                                                                            class="fe fe-thumbs-up text-info me-1"></span>Oct
-                                                                        9,</span>
-                                                                    <span class="ms-1">1:56 PM</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto text-center me-2">
-                                                    <a href="#" class="badge-dot bg-secondary"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Mark as unread">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="text-body" href="#">
-                                                        <div class="d-flex">
-                                                            <img src="assets/images/avatar/avatar-4.jpg"
-                                                                alt="" class="avatar-md rounded-circle" />
-                                                            <div class="ms-3">
-                                                                <h5 class="fw-bold mb-1">Sina Ray</h5>
-                                                                <p class="mb-3">
-                                                                    You earn new certificate for complete the Javascript
-                                                                    Beginner course.
-                                                                </p>
-                                                                <span class="fs-6 text-muted">
-                                                                    <span><span
-                                                                            class="fe fe-award text-warning me-1"></span>Oct
-                                                                        9,</span>
-                                                                    <span class="ms-1">1:56 PM</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto text-center me-2">
-                                                    <a href="#" class="badge-dot bg-secondary"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Mark as unread">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="border-top px-3 pt-3 pb-0">
-                                        <a href="../notification-history.html" class="text-link fw-semi-bold">
-                                            See all Notifications
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                     
                         <!-- List -->
                         <li class="dropdown ms-2">
                             <a class="rounded-circle" href="#" role="button" id="dropdownUser"
@@ -753,7 +301,7 @@
                                     <div class="d-flex">
                                         <div class="avatar avatar-md avatar-indicators avatar-online">
                                             <img alt="avatar" src="{{ Auth::user()->profile_photo_url }}"
-                                            class="rounded-circle" />
+                                                class="rounded-circle" />
                                         </div>
                                         <div class="ms-3 lh-1">
                                             <h5 class="mb-1">{{ Auth::user()->name }}</h5>
