@@ -239,7 +239,7 @@
                     <form action="{{ route('ebook.store') }}" method="POST" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
-                        <div class="mb-3 mb-2">
+                        <div class="mb-3 ">
                             <label class="form-label" for="title">type<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Write a name " id="title"
                                 name="type" required>
@@ -262,7 +262,7 @@
                         </div>
 
 
-                        <div class="mb-3 mb-2">
+                        <div class="mb-3 ">
                             <label class="form-label">Book</label>
                             <select class="selectpicker" data-width="100%" name="book">
                                 @foreach (\App\Models\Book::all() as $item)

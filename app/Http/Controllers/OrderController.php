@@ -12,9 +12,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::where('status', 'wait')->get();
+        $ordersAccepted = Order::whereIn('status', ['accept','received','collect'])->get();
 
-        return view('order.commande', compact('orders'));
+        return view('order.commande', compact('orders','ordersAccepted'));
 
     }
 
@@ -24,6 +25,22 @@ class OrderController extends Controller
     public function create()
     {
         //
+    }
+    public function accept(Order $order)
+    {
+        $order->status = 'accept';
+        $order->date_take = now();
+        $order->save();
+
+        return redirect()->route('order.index');
+    }
+
+    public function received(Order $order)
+    {
+        $order->status = 'done';
+        $order->save();
+
+        return redirect()->route('order.index');
     }
 
     /**
