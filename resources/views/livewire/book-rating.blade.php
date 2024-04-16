@@ -102,8 +102,7 @@
                                         <br>
                                         <button title="reply" wire:loadind.attr='disabled' type="button"
                                             class="btn btn-outline-white btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter{{ $review->user->id }}"> <i
-                                                class="fa fa-reply"></i>
+                                            data-bs-target="#exampleModalCenter{{ $review->user->id }}">reply
                                         </button>
                                         @if (\App\Models\Response::where('book_id', $this->book->id)->where('comment_type', 'App\Models\Response')->where('comment_id', $review->id)->count() > 0)
                                             <button title="show reponses" wire:loadind.attr='disabled' type="button"
@@ -111,7 +110,7 @@
                                                 data-bs-toggle="collapse"
                                                 data-bs-target="#collapseExample{{ $review->id }}" aria-expanded="false"
                                                 aria-controls="collapseExample{{ $review->id }}">
-                                                <i class="fa fa-comments"></i>
+                                               <small>view responses</small>
                                             </button>
                                         @endif
 
@@ -119,7 +118,7 @@
                                             <button title="delete review {{ $review->title }}" wire:loadind.attr='disabled'
                                                 type="button" class="btn btn-outline-danger btn-sm"
                                                 wire:click='delete({{ $review->id }})'><i
-                                                    class="fa fa-trash"></i></button>
+                                                    class="fe fe-trash"></i></button>
                                         @endif
                                         @if ($review->user_id != auth()->user()->id)
                                             <button wire:click='report({{ $review->id }})' wire:loadind.attr='disabled'
@@ -191,7 +190,7 @@
                                     placeholder="Recipient's review" aria-label="Recipient's username"
                                     aria-describedby="button-addon2">
                                 <button class="btn btn-outline-secondary" type="submit" wire:loading.attr='hidden'
-                                    wire:click.prevent='save' id="button-addon2">Button</button>
+                                    wire:click.prevent='save' id="button-addon2">Comment</button>
                                 <button wire:loading class="btn btn-dark" type="button" disabled>
                                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                                     Loading...

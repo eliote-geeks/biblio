@@ -105,16 +105,7 @@
 				</li>
 		
 			</ul>
-			<form class="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
-				<span class="position-absolute ps-3 search-icon">
-					<i class="fe fe-search"></i>
-				</span>
-				<input
-					type="search"
-					class="form-control ps-6"
-					placeholder="Search Book"
-				/>
-			</form>
+			@livewire('search-book')
 			<ul class="navbar-nav navbar-right-wrap ms-auto d-none d-lg-block">
 			
 
@@ -226,52 +217,52 @@
 
     <!-- Scripts -->
     <!-- Libs JS -->
-<script src="assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/libs/odometer/odometer.min.js"></script>
-<script src="assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-<script src="assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="assets/libs/flatpickr/dist/flatpickr.min.js"></script>
-<script src="assets/libs/inputmask/dist/jquery.inputmask.min.js"></script>
-<script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-<script src="assets/libs/quill/dist/quill.min.js"></script>
-<script src="assets/libs/file-upload-with-preview/dist/file-upload-with-preview.iife.js"></script>
-<script src="assets/libs/dragula/dist/dragula.min.js"></script>
-<script src="assets/libs/bs-stepper/dist/js/bs-stepper.min.js"></script>
-<script src="assets/libs/dropzone/dist/min/dropzone.min.js"></script>
-<script src="assets/libs/jQuery.print/jQuery.print.js"></script>
-<script src="assets/libs/prismjs/prism.js"></script>
-<script src="assets/libs/prismjs/components/prism-scss.min.js"></script>
-<script src="assets/libs/%40yaireo/tagify/dist/tagify.min.js"></script>
-<script src="assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
-<script src="assets/libs/%40popperjs/core/dist/umd/popper.min.js"></script>
-<script src="assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
-<script src="assets/libs/typed.js/lib/typed.min.js"></script>
-<script src="assets/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
-<script src="assets/libs/jsvectormap/dist/maps/world.js"></script>
-<script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-<script src="assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
-<script src="assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-<script src="assets/libs/fullcalendar/main.min.js"></script>
-<script src="assets/libs/%40lottiefiles/lottie-player/dist/lottie-player.js"></script>
-<script src="assets/libs/simplebar/dist/simplebar.min.js"></script>
-<script src="assets/libs/nouislider/dist/nouislider.min.js"></script>
-<script src="assets/libs/wnumb/wNumb.min.js"></script>
-<script src="assets/libs/glightbox/dist/js/glightbox.min.js"></script>
-
-
-
-<!-- CDN File for moment -->
-<script src='../../cdn.jsdelivr.net/npm/moment%402.29.1/min/moment.min.js'></script>
-
-
-
-
-<!-- Theme JS -->
-<script src="assets/js/theme.min.js"></script>
+	<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+	<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../assets/libs/odometer/odometer.min.js"></script>
+	<script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+	<script src="../assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="../assets/libs/flatpickr/dist/flatpickr.min.js"></script>
+	<script src="../assets/libs/inputmask/dist/jquery.inputmask.min.js"></script>
+	<script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+	<script src="../assets/libs/quill/dist/quill.min.js"></script>
+	<script src="../assets/libs/file-upload-with-preview/dist/file-upload-with-preview.iife.js"></script>
+	<script src="../assets/libs/dragula/dist/dragula.min.js"></script>
+	<script src="../assets/libs/bs-stepper/dist/js/bs-stepper.min.js"></script>
+	<script src="../assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+	<script src="../assets/libs/jQuery.print/jQuery.print.js"></script>
+	<script src="../assets/libs/prismjs/prism.js"></script>
+	<script src="../assets/libs/prismjs/components/prism-scss.min.js"></script>
+	<script src="../assets/libs/%40yaireo/tagify/dist/tagify.min.js"></script>
+	<script src="../assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
+	<script src="../assets/libs/%40popperjs/core/dist/umd/popper.min.js"></script>
+	<script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
+	<script src="../assets/libs/typed.js/lib/typed.min.js"></script>
+	<script src="../assets/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
+	<script src="../assets/libs/jsvectormap/dist/maps/world.js"></script>
+	<script src="../assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="../assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="../assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+	<script src="../assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+	<script src="../assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+	<script src="../assets/libs/fullcalendar/main.min.js"></script>
+	<script src="../assets/libs/%40lottiefiles/lottie-player/dist/lottie-player.js"></script>
+	<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+	<script src="../assets/libs/nouislider/dist/nouislider.min.js"></script>
+	<script src="../assets/libs/wnumb/wNumb.min.js"></script>
+	<script src="../assets/libs/glightbox/dist/js/glightbox.min.js"></script>
+	
+	
+	
+	<!-- CDN File for moment -->
+	<script src='../../../cdn.jsdelivr.net/npm/moment%402.29.1/min/moment.min.js'></script>
+	
+	
+	
+	
+	<!-- Theme JS -->
+	<script src="../assets/js/theme.min.js"></script>
 
 </body>
 

@@ -45,16 +45,19 @@
           <ul class="nav nav-lb-tab mb-6" id="tab" role="tablist">
             <li class="nav-item ms-0" role="presentation">
               <a class="nav-link active " id="bookmarked-tab" data-bs-toggle="pill" href="#bookmarked" role="tab"
-                aria-controls="bookmarked" aria-selected="true">Wait</a>
+                aria-controls="bookmarked" aria-selected="true">Bookmarked </a>
             </li>
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="currentlyLearning-tab" data-bs-toggle="pill" href="#currentlyLearning" role="tab"
-                aria-controls="currentlyLearning" aria-selected="false">Bookmarked && Deadline </a>
+                aria-controls="currentlyLearning" aria-selected="false">Learning</a>
             </li>
           
           </ul>
           <!-- Tab content -->
           <div class="tab-content" id="tabContent">
+
+
+
             <div class="tab-pane fade show active" id="bookmarked" role="tabpanel" aria-labelledby="bookmarked-tab">
               <div class="row">
                 
@@ -96,7 +99,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <a href="{{ route('removeMyBook',$book->id) }}" class="removeBookmark">
-                                            <i class="mdi mdi-bookmark mdi-18px "></i>
+                                            <i class="fe fe-trash mdi-18px "></i>
                                         </a>
                                     </div>
                                 </div>
@@ -111,14 +114,11 @@
                   <p>You’ve reached the end of the list</p>
                 </div>
               </div>
-            </div>
-
-        
-          </div>
+            </div>      
+          {{-- </div> --}}
 
             <div class="tab-pane fade" id="currentlyLearning" role="tabpanel" aria-labelledby="currentlyLearning-tab">
               <div class="row">
-
                  @foreach ($booksOK as $book)
                   <div class="col-lg-3 col-md-6 col-12">
                     <!-- Card -->
@@ -155,11 +155,7 @@
                                     <div class="col ms-2">
                                         <span>{{$book->author}}</span>
                                     </div>
-                                    <div class="col-auto">
-                                        <a href="{{ route('removeMyBook',$book->id) }}" class="removeBookmark">
-                                            <i class="mdi mdi-bookmark mdi-18px "></i>
-                                        </a>
-                                    </div>
+                                    
                                     <div class="" >
                                      @php
                                         $startDate = \Carbon\Carbon::parse($book->date_take); 
@@ -167,8 +163,12 @@
                                         $diff = $endDate->diffInDays($startDate);
                                         
                                       @endphp
-
-                                     <p class="alert alert-warning">{{ $diff }} day(s) left(s)</p> 
+                                      @if ($book->date_back < \Carbon\Carbon::now())
+                                          <p class="alert alert-danger">Days lefts please go back now </p>
+                                      @else
+                                      <p class="alert alert-warning">{{ $diff }} day(s) left(s)</p>
+                                      @endif
+                                      
                                 </div>
                             </div>
                     </div>

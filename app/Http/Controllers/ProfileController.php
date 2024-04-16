@@ -81,14 +81,19 @@ class ProfileController extends Controller
             'dateTake' => 'required|date',
             'dateBack' => 'required|date|after:dateTake'
         ]);
-        $order = new Order();
-        $order->book_id = $book;
-        $order->user_id = auth()->user()->id;
-        $order->date_take = $request->dateTake;
-        $order->date_back = $request->dateBack;
-        $order->status = 'wait';
-        $order->save();
-        return redirect()->route('myBooks');
+
+        if(Order::where('user_id',auth()->user()->id)->where('book_id',$book)->where('status','wait')->orWhere('status','accept')->count() == 0 ){
+            $order = new Order();
+            $order->book_id = $book;
+            $order->user_id = auth()->user()->id;
+            $order->date_take = $request->dateTake;
+            $order->date_back = $request->dateBack;
+            $order->status = 'wait';
+            $order->save();
+            return redirect()->route('myBooks');
+        }
+        else
+            return redirect()->back()->with('message','no book allowed !!');
     }
 
     public function removeMyBook($id)
