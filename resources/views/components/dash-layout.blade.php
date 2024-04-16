@@ -90,7 +90,7 @@
                         <a class="nav-link   collapsed @if (request()->routeIs('student.index')) active @endif " href="#"
                             data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false"
                             aria-controls="navProfile">
-                            <i class="nav-icon fe fe-user me-2"></i> User
+                            <i class="nav-icon fe fe-user me-2"></i> Users
                         </a>
                         <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
