@@ -104,7 +104,7 @@
                                                                         <i class="fe fe-trash dropdown-item-icon"></i>Delete
                                                                     </a>
                                                                 </form>
-                                                                
+
                                                                 <script>
                                                                     function deleteBook(bookId) {
                                                                         if (confirm('Are you sure you want to delete this book?')) {
@@ -112,8 +112,8 @@
                                                                         }
                                                                     }
                                                                 </script>
-                                                                
-                                                       
+
+
 
 
                                                     </span>
@@ -364,7 +364,7 @@
                             <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="submit" class="btn">test</button>
+                            
                         </div>
                     </form>
                 </div>
