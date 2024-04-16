@@ -409,7 +409,7 @@
                     <div class="card mb-3 mb-4">
                         <div class="p-1">
                             <div class="d-flex justify-content-center position-relative rounded py-10 border-white border rounded-3 bg-cover"
-                                style="background-image: url({{ $book->cover_path }});">
+                                style="background-image: url({{ '/storage/'.$book->cover_path }});">
 
                             </div>
                         </div>
@@ -481,7 +481,7 @@
                         <!-- Card -->
                         <div class="card mb-4 card-hover">
                             <a href="{{ route('book.show', $related) }}" class="card-img-top"><img
-                                    src="{{ asset($related->cover_path) }}" alt=""
+                                    src="{{ asset('/storage/'.$related->cover_path) }}" alt=""
                                     class="card-img-top rounded-top-md" /></a>
                             <!-- Card body -->
                             <div class="card-body">

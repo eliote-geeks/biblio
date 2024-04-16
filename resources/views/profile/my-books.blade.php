@@ -62,7 +62,7 @@
                   <div class="col-lg-3 col-md-6 col-12">
                     <!-- Card -->
                     <div class="card  mb-4 card-hover">
-                      <a href="{{ route('book.show',$book->id) }}" class="card-img-top"><img src="{{ $book->cover_path }}" alt=""
+                      <a href="{{ route('book.show',$book->id) }}" class="card-img-top"><img src="{{ '/storage/'.$book->cover_path }}" alt=""
                           class="card-img-top rounded-top-md"></a>
                       <!-- Card body -->
                       <div class="card-body">
@@ -123,7 +123,7 @@
                   <div class="col-lg-3 col-md-6 col-12">
                     <!-- Card -->
                     <div class="card  mb-4 card-hover">
-                      <a href="{{ route('book.show',$book->id) }}" class="card-img-top"><img src="{{ $book->cover_path }}" alt=""
+                      <a href="{{ route('book.show',$book->id) }}" class="card-img-top"><img src="{{ '/storage/'.$book->cover_path }}" alt=""
                           class="card-img-top rounded-top-md"></a>
                       <!-- Card body -->
                       <div class="card-body">
