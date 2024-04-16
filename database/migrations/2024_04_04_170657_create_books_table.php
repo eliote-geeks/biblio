@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('cover_path')->nullable();
             $table->string('title');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->string('type')->nullable();
             $table->longText('description');
             $table->string('author');
