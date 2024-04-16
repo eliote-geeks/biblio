@@ -38,7 +38,7 @@
                 <div class="item">
                     <!-- Card -->
                     <div class="card  mb-4 card-hover">
-                        <a href="{{ route('book.show',$book) }}" class="card-img-top"><img src="{{$book->cover_path}}" alt="" class="rounded-top-md card-img-top"></a>
+                        <a href="{{ route('book.show',$book) }}" class="card-img-top"><img src="{{'/storage/'.$book->cover_path}}" alt="" class="rounded-top-md card-img-top"></a>
                         <!-- Card Body -->
                         <div class="card-body">
                             <h4 class="mb-2 text-truncate-line-2 "><a href="pages/book-single.html" class="text-inherit">{{\Str::title($book->title)}}</a></h4>
@@ -112,7 +112,7 @@
                 <div class="item">
                     <!-- Card -->
                     <div class="card  mb-4 card-hover">
-                        <a href="{{ route('book.show',$e->book) }}" class="card-img-top"><img src="{{$e->book->cover_path}}" alt="" class="card-img-top rounded-top-md"></a>
+                        <a href="{{ route('book.show',$e->book) }}" class="card-img-top"><img src="{{'/storage/'.$e->book->cover_path}}" alt="" class="card-img-top rounded-top-md"></a>
                         <!-- Card Body -->
                         <div class="card-body">
                             <h4 class="mb-2 text-truncate-line-2 "><a href="pages/book-single.html" class="text-inherit">{{$e->book->title}}</a></h4>
