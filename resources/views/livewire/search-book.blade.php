@@ -4,7 +4,7 @@
     <span class="position-absolute ps-3 search-icon">
         <i class="fe fe-search"></i>
     </span>
-    <input type="search" class="form-control ps-6" placeholder="Search Courses" wire:model.live='search' />&nbsp;&nbsp;
+    <input type="search" class="form-control ps-6" placeholder="Search Book" wire:model.live='search' />&nbsp;&nbsp;
     <div wire:loading>
         Loading...
     </div>
