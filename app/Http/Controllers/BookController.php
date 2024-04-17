@@ -40,6 +40,7 @@ class BookController extends Controller
             'description'=>$request->description,
             'status'=>$request->status,
             'category_id'=>$request->category_id,
+            'type' => $request->type,
         ]);
 
         if($request->file('cover_path')){
@@ -62,7 +63,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $relates = Book::inRandomOrder()->where('category_id',$book->category->id)->where('id','!=',$book->id)->get()->take(8);            
+        $relates = Book::inRandomOrder()->where('category_id',$book->category->id)->where('id','!=',$book->id)->get()->take(8);
 
         $rat1 = Review::where('book_id',$book->id)->where('rating','=','1')->get();
         $rat2 = Review::where('book_id',$book->id)->where('rating','=','2')->get();
@@ -80,28 +81,28 @@ class BookController extends Controller
             $student_review = round((($rat1->count() * 1) + ($rat2->count() * 2) + ($rat3->count() * 3) + ($rat4->count() * 4) + ($rat5->count() * 5)) / $rat->count(),1);
             $s = $rat->count();
         }
-        
-        
+
+
         if($rat1->count() > 0)
             $star1 = round(($rat1->count() * 100) / $rat->count(),0);
         else
             $star1 = 0;
-        
+
         if($rat2->count() > 0)
             $star2 = round(($rat2->count() * 100) / $rat->count(),0);
         else
             $star2 = 0;
-        
+
         if($rat3->count() > 0)
             $star3 = round(($rat3->count() * 100) / $rat->count(),0);
         else
             $star3 = 0;
-        
-        if($rat4->count() > 0)            
+
+        if($rat4->count() > 0)
             $star4 = round(($rat4->count() * 100) / $rat->count(),0);
         else
             $star4 = 0;
-        
+
         if($rat5->count() > 0)
             $star5 = round(($rat5->count() * 100) / $rat->count(),0);
         else
@@ -134,7 +135,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $book->update($request ->all());
-        
+
         if($request->file('cover_path')){
             $request->validate([
                 'cover_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);

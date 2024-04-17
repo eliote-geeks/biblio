@@ -153,125 +153,24 @@
 
 
 
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navAuthentication" aria-expanded="false"
-                            aria-controls="navAuthentication">
-                            <i class="nav-icon fe fe-lock me-2"></i> Authentication
-                        </a>
-                        <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="../sign-in.html">Sign In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="../sign-up.html">Sign Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="../forget-password.html">
-                                        Forget Password
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="notification-history.html">
-                                        Notifications
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  " href="../404-error.html"> 404 Error</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
 
 
                     <!-- Nav item -->
-                    <li class="nav-item">
-                        <div class="nav-divider"></div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <div class="navbar-heading">Apps</div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link " href="chat-app.html">
-                            <i class="nav-icon fe fe-message-square me-2"></i> Chat
 
-                        </a>
-                    </li>
 
                     <!-- Nav item -->
 
-                    <li class="nav-item">
-                        <div class="nav-divider"></div>
-                    </li>
-                    <!-- Nav item -->
-                    <li class="nav-item">
-                        <div class="navbar-heading">Components</div>
-                    </li>
+
                     <!-- Nav item -->
 
                     <!-- Nav item -->
 
                     <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse"
-                            data-bs-target="#navSiteSetting" aria-expanded="false" aria-controls="navSiteSetting">
-                            <i class="nav-icon fe fe-settings me-2"></i> Site Setting
-                        </a>
-                        <div id="navSiteSetting" class="collapse " data-bs-parent="#sideNavbar">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-general.html">
-                                        General
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-google.html">
-                                        Google
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-social.html">
-                                        Social
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-social-login.html">
-                                        Social Login
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-payment.html">
-                                        Payment
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="setting-smpt.html">
-                                        SMPT
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
 
 
                 </ul>
-                <!-- Card -->
-                {{-- <div class="card bg-dark-primary shadow-none text-center mx-4 my-8">
-                    <div class="card-body py-6">
-                        <img src="assets/images/background/giftbox.png" alt="" />
-                        <div class="mt-4">
-                            <h5 class="text-white">Unlimited Access</h5>
-                            <p class="text-white-50 fs-6">
-                                Upgrade your plan from a Free trial, to select ‘Business Plan’. Start Now
-                            </p>
-                            <a href="#" class="btn btn-white btn-sm mt-2">Upgrade Now</a>
-                        </div>
-                    </div>
-                </div> --}}
+              
             </div>
         </nav>
         <!-- Page Content -->

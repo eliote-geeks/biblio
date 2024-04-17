@@ -58,7 +58,7 @@
                                             <td>
                                                 <div class="d-lg-flex align-items-center">
                                                     <div>
-                                                        <img src="{{ '/storage/' . $book->cover_path }}" alt
+                                                        <img src="{{ '/storage/' .$book->cover_path }}" alt
                                                             alt="" class="img-4by3-lg rounded" height="100" />
                                                     </div>
                                                     <div class="ms-lg-3 mt-2 mt-lg-0">

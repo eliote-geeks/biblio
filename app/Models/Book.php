@@ -19,7 +19,8 @@ class Book extends Model
         'category_id',
         'status',
         'cover_path',
-        'quantity'
+        'quantity',
+        'type'
 
     ];
 
