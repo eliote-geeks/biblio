@@ -115,7 +115,7 @@
                         <a href="{{ route('book.show',$e->book) }}" class="card-img-top"><img src="{{'/storage/'.$e->book->cover_path}}" alt="" class="card-img-top rounded-top-md"></a>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <h4 class="mb-2 text-truncate-line-2 "><a href="pages/book-single.html" class="text-inherit">{{$e->book->title}}</a></h4>
+                            <h4 class="mb-2 text-truncate-line-2 "><a href="{{ route('book.show', $book->id) }}" class="text-inherit">{{$e->book->title}}</a></h4>
                             <!-- List -->
                             
                             <div class="lh-1">

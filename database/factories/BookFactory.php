@@ -24,6 +24,7 @@ class BookFactory extends Factory
             'status' => $this->faker->word(),
             'description' => $this->faker->text($maxNbChars = 200),
             'author'=> $this->faker->name(),
+            'type'=> $this->faker->word(),
             'quantity' =>random_int(10,1000),
         ];
     }
