@@ -36,9 +36,7 @@ Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('ebook', EbookController::class);
-Route::resource('order', OrderController::class);
-Route::post('/order-accepted/{order}', [OrderController::class, 'accept'])->name('order.accept');
-Route::post('/order-received/{order}', [OrderController::class, 'received'])->name('order.received');
+
 
 Route::get('/download-pdf/{ebook}', 'App\Http\Controllers\EbookController@show')->name('download.pdf');
 
@@ -85,6 +83,9 @@ Route::get('my-books',[ProfileController::class,'myBooks'])->name('myBooks');
 Route::get('enroll-book/{book}',[ProfileController::class,'enrollBook'])->name('enrollBook');
 Route::post('enroll-book/{book}',[ProfileController::class,'enrollBookPost'])->name('enrollBookPost');
 Route::get('remove/book/{id}',[ProfileController::class,'removeMyBook'])->name('removeMyBook');
+Route::resource('order', OrderController::class);
+Route::post('/order-accepted/{order}', [OrderController::class, 'accept'])->name('order.accept');
+Route::post('/order-received/{order}', [OrderController::class, 'received'])->name('order.received');
 });
 
 
