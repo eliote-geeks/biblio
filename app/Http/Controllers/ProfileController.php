@@ -65,7 +65,7 @@ class ProfileController extends Controller
         ->leftJoin('orders','orders.book_id','=','books.id')
         ->selectRaw('books.*, orders.date_take date_take, orders.date_back date_back')
         ->where('orders.user_id','=',Auth::user()->id)
-        ->where('orders.status','=','accept')
+        ->where('orders.status','=','received')
         ->get();
         return view('profile.my-books',compact('books','booksOK'));
     }
@@ -82,7 +82,7 @@ class ProfileController extends Controller
             'dateBack' => 'required|date|after:dateTake'
         ]);
 
-        if(Order::where('user_id',auth()->user()->id)->where('book_id',$book)->where('status','wait')->orWhere('status','accept')->count() == 0 ){
+        if(Order::where('user_id',auth()->user()->id)->where('book_id',$book)->count() == 0 ){
             $order = new Order();
             $order->book_id = $book;
             $order->user_id = auth()->user()->id;
