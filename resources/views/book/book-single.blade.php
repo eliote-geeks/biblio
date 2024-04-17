@@ -12,17 +12,18 @@
                                 JavaScript is the popular programming language which powers web pages and web applications. This book will get you started coding in JavaScript.
                             </p> --}}
                         <div class="d-flex align-items-center">
-                            @if ($book->type == 'book')
+                            {{-- @if ($book->type == 'book')
                             <a href="#" class="bookmark text-white text-decoration-none">
                                 <i class="fe fe-bookmark text-white-50 me-2"></i>Enroll
                             </a>
                             @else
                             {{-- <a href="#" class="bookmark text-white text-decoration-none">
                                 <i class="fe fe-bookmark text-white-50 me-2"></i>Read
-                            </a> --}}
-                            @endif
+                            </a>    
+                            @endif --}}
 
-                            <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> 1200 Enrolled </span>
+                            <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i>
+                                {{ \App\Models\Order::where('book_id', $book)->count() }} Enrolled </span>
                             <span class="text-white ms-3"><i class="fe fe-user text-white-50"></i> {{ $book->quantity }}
                                 stock </span>
 
@@ -188,159 +189,15 @@
                                     </div>
                                     <!-- hr -->
                                     <hr class="my-5" />
-                                    <div class="mb-3">
-                                        <div class="d-lg-flex align-items-center justify-content-between mb-5">
-                                            <!-- Reviews -->
-                                            <div class="mb-3 mb-lg-0">
-                                                <h3 class="mb-0">Reviews</h3>
-                                            </div>
-                                            <div>
-                                                <!-- Form -->
-                                                {{-- @livewire('best-review', ['book' => $book]) --}}
-                                                
+                                    
 
-                                            </div>
+
+                                        <!-- Form -->
+                                        @livewire('best-review', ['book' => $book])
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        </div>
-                                        <div class="tab-pane fade" id="transcript" role="tabpanel"
-                                            aria-labelledby="transcript-tab">
-                                            <!-- Description -->
-                                            <div>
-                                                <h3 class="mb-3">Transcript from the "Introduction" Lesson</h3>
-                                                <div class="mb-4">
-                                                    <h4>book Overview <a href="#"
-                                                            class="text-dark ms-2 h4">[00:00:00]</a></h4>
-                                                    <p class="mb-0">
-                                                        My name is John Deo and I work as human duct tape at Gatsby, that
-                                                        means that I do a lot of different things. Everything from dev roll
-                                                        to writing content to writing code. And I used to work as an
-                                                        architect at IBM. I live in Portland, Oregon.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>Introduction <a href="#"
-                                                            class="text-dark ms-2 h4">[00:00:16]</a></h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>Why Take This book? <a href="#"
-                                                            class="text-dark ms-2 h4">[00:00:37]</a></h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>A Look at the Demo Application <a href="#"
-                                                            class="text-dark ms-2 h4">[00:00:54]</a></h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>Summary <a href="#" class="text-dark ms-2 h4">[00:01:31]</a>
-                                                    </h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tab pane -->
-                                        <div class="tab-pane fade" id="faq" role="tabpanel"
-                                            aria-labelledby="faq-tab">
-                                            <!-- FAQ -->
-                                            <div>
-                                                <h3 class="mb-3">book - Frequently Asked Questions</h3>
-                                                <div class="mb-4">
-                                                    <h4>How this book help me to design layout?</h4>
-                                                    <p>
-                                                        My name is Jason Woo and I work as human duct tape at Gatsby, that
-                                                        means that I do a lot of different things. Everything from dev roll
-                                                        to writing content to writing code. And I used to work as an
-                                                        architect at IBM. I live in Portland, Oregon.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>What is important of this book?</h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>Why Take This book?</h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <h4>Is able to create application after this book?</h4>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                    <p>
-                                                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only
-                                                        gonna use the pieces of it that we need to build in Gatsby. We're
-                                                        not gonna be doing a deep dive into what GraphQL is or the language
-                                                        specifics. We're also gonna get into MDX. MDX is a way
-                                                        to write React components in your markdown.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
 
 
@@ -409,7 +266,7 @@
                     <div class="card mb-3 mb-4">
                         <div class="p-1">
                             <div class="d-flex justify-content-center position-relative rounded py-10 border-white border rounded-3 bg-cover"
-                                style="background-image: url({{ '/storage/'.$book->cover_path }});">
+                                style="background-image: url({{ '/storage/' . $book->cover_path }});">
 
                             </div>
                         </div>
@@ -419,11 +276,12 @@
 
                             <div class="d-grid">
                                 @if ($book->type == 'book')
-                                <a href="{{ route('enrollBook',$book) }}" class="btn btn-outline-primary">Enroll</a>
+                                    <a href="{{ route('enrollBook', $book) }}"
+                                        class="btn btn-outline-primary">Enroll</a>
                                 @elseif($book->type == 'ebook')
-                                <a href="{{ \App\Models\Ebook::where('book_id',$book->id)->path }}" __target='blank' class="btn btn-outline-primary">Read</a>
+                                    <a href="{{ \App\Models\Ebook::where('book_id', $book->id)->path }}"
+                                        __target='blank' class="btn btn-outline-primary">Read</a>
                                 @else
-                                
                                 @endif
                             </div>
                         </div>
@@ -437,7 +295,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="ms-4">
                                     <h4 class="mb-0">{{ $book->author }}</h4>
-                                    
+
                                 </div>
                             </div>
                             <div class="border-top row mt-3 border-bottom mb-3 g-0">
@@ -449,7 +307,8 @@
                                 </div>
                                 <div class="col border-start">
                                     <div class="pe-1 ps-3 py-3">
-                                        <h5 class="mb-0">{{ \App\Models\Book::where('author',$book->author)->count() }}</h5>
+                                        <h5 class="mb-0">
+                                            {{ \App\Models\Book::where('author', $book->author)->count() }}</h5>
                                         <span>Book</span>
                                     </div>
                                 </div>
@@ -465,56 +324,56 @@
                     </div>
                 </div>
             </div>
-@auth
-            @livewire('book-rating', ['book' => $book])
- @endauth
+            @auth
+                @livewire('book-rating', ['book' => $book])
+            @endauth
             <!-- Card -->
             <div class="pt-12 pb-3">
-            <div class="row d-md-flex align-items-center mb-4">
-                <div class="col-12">
-                    <h2 class="mb-0">Related Books</h2>
+                <div class="row d-md-flex align-items-center mb-4">
+                    <div class="col-12">
+                        <h2 class="mb-0">Related Books</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                @forelse($relates as $related)
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Card -->
-                        <div class="card mb-4 card-hover">
-                            <a href="{{ route('book.show', $related) }}" class="card-img-top"><img
-                                    src="{{ asset('/storage/'.$related->cover_path) }}" alt=""
-                                    class="card-img-top rounded-top-md" /></a>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <h4 class="mb-2 text-truncate-line-2"><a
-                                        href="{{ route('book.show', $related) }}" class="text-inherit">
-                                        {{ Str::limit($related->title, 40) }}</a></h4>
-                                
-                                <div class="lh-1">
+                <div class="row">
+                    @forelse($relates as $related)
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Card -->
+                            <div class="card mb-4 card-hover">
+                                <a href="{{ route('book.show', $related) }}" class="card-img-top"><img
+                                        src="{{ asset('/storage/' . $related->cover_path) }}" alt=""
+                                        class="card-img-top rounded-top-md" /></a>
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <h4 class="mb-2 text-truncate-line-2"><a
+                                            href="{{ route('book.show', $related) }}" class="text-inherit">
+                                            {{ Str::limit($related->title, 40) }}</a></h4>
 
-                                    <span>
-                                        @for ($k = 1; $k <= round(\App\Models\Book::rating($related->id)[0], 0); $k++)
-                                            <i class="mdi mdi-star me-n1 text-warning"></i>
-                                        @endfor
-                                        @for ($k = 1; $k <= 5 - round(\App\Models\Book::rating($related->id)[0], 0); $k++)
-                                            <i class="mdi mdi-star me-n1 text-light"></i>
-                                        @endfor
-                                    </span>
-                                    <span
-                                        class="text-warning">{{ \App\Models\Book::rating($related->id)[0] }}</span>
-                                    <span
-                                        class="fs-6 text-muted">({{ \App\Models\Book::rating($related->id)[1] }})</span>
-                                </div>
+                                    <div class="lh-1">
 
-                            </div>
-                            <!-- Card footer -->
-                            <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    
-                                    <div class="col ms-2">
-                                        <span>{{$related->author}}</span>
+                                        <span>
+                                            @for ($k = 1; $k <= round(\App\Models\Book::rating($related->id)[0], 0); $k++)
+                                                <i class="mdi mdi-star me-n1 text-warning"></i>
+                                            @endfor
+                                            @for ($k = 1; $k <= 5 - round(\App\Models\Book::rating($related->id)[0], 0); $k++)
+                                                <i class="mdi mdi-star me-n1 text-light"></i>
+                                            @endfor
+                                        </span>
+                                        <span
+                                            class="text-warning">{{ \App\Models\Book::rating($related->id)[0] }}</span>
+                                        <span
+                                            class="fs-6 text-muted">({{ \App\Models\Book::rating($related->id)[1] }})</span>
                                     </div>
-{{-- enroll --}}
-                                    {{-- <div class="col-auto">
+
+                                </div>
+                                <!-- Card footer -->
+                                <div class="card-footer">
+                                    <div class="row align-items-center g-0">
+
+                                        <div class="col ms-2">
+                                            <span>{{ $related->author }}</span>
+                                        </div>
+                                        {{-- enroll --}}
+                                        {{-- <div class="col-auto">
 
                                         @auth
                                             @if (App\Models\Enroll::where('Book_id', $related->id)->where('user_id', auth()->user()->id)->get()->count() > 0)
@@ -540,16 +399,16 @@
 
                                     </div> --}}
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <span>No related Books<span>
-                @endforelse
+                    @empty
+                        <span>No related Books<span>
+                    @endforelse
 
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </x-app>
