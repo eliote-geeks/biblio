@@ -35,10 +35,10 @@
                             class="fe fe-user nav-icon"></i>Security</a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="notifications.html"><i
                             class="fe fe-bell nav-icon"></i>Notifications</a>
-                </li>
+                </li> --}}
                 
                 <!-- Nav item -->
                 <li class="nav-item {{ Request::routeIs('user.delete') ? 'active' : '' }}">
