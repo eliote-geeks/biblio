@@ -62,12 +62,12 @@
                                             <p class="mb-0">Was this review helpful?</p>
                                             <button wire:loading.attr='disabled'
                                                 @if ($review->user_id != auth()->user()->id) wire:click='like({{ $review->id }})' @else disabled @endif
-                                                class="btn btn-xs btn-dark ms-lg-3"><i class="fa fa-thumbs-up"></i>
+                                                class="btn btn-xs btn-dark ms-lg-3"><i class="fe fe-thumbs-up"></i>
                                                 <small>({{ \App\Models\LikeReview::where('review_id', $review->id)->where('status', 1)->where('review_type', 'App\Models\Review')->count() }})</small></button>
                                             </i>
                                             <button wire:loading.attr='disabled'
                                                 @if ($review->user_id != auth()->user()->id) wire:click='dislike({{ $review->id }})' @endif
-                                                class="btn btn-xs btn-outline-white ms-1"><i class="fa fa-thumbs-down"></i>
+                                                class="btn btn-xs btn-outline-white ms-1"><i class="fe fe-thumbs-down"></i>
                                                 <small>({{ \App\Models\LikeReview::where('review_id', $review->id)->where('status', 0)->where('review_type', 'App\Models\Review')->count() }})</small></button>
                                         </div>
 
@@ -121,9 +121,9 @@
                                                     class="fe fe-trash"></i></button>
                                         @endif
                                         @if ($review->user_id != auth()->user()->id)
-                                            <button wire:click='report({{ $review->id }})' wire:loadind.attr='disabled'
+                                            {{-- <button wire:click='report({{ $review->id }})' wire:loadind.attr='disabled'
                                                 type="button" class="btn btn-outline-danger btn-sm" title="Report Abuse"><i
-                                                    class="fe fe-flag"></i></button>
+                                                    class="fe fe-flag"></i></button> --}}
                                         @endif
 
                                         
