@@ -6,7 +6,7 @@
             <div class="row align-items-center g-0">
                 <div class="col-xl-5 col-lg-6 col-md-12">
                     <div class="py-5 py-lg-0">
-                        <h1 class="text-white display-4 fw-bold">Welcome to Geeks Library Application
+                        <h1 class="text-white display-4 fw-bold">Welcome to <span class="fw-bold fs-2">Book Merge</span> Library Application
                         </h1>
                         <p class="text-white-50 mb-4 lead">
                             Hand-picked  expertly crafted books, designed for the modern students.
