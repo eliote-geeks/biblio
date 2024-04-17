@@ -156,6 +156,18 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="mb-3">
+                                                                <label class="form-label" for="title">Type<span
+                                                                        class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Write a name " id="type"
+                                                                    name="type" value="{{ $book->type }}"
+                                                                    required>
+                                                                <small>Field must contain a unique value</small>
+                                                                @error('type')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
                                                                 <label class="form-label" for="title">auteur<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" class="form-control"
@@ -298,6 +310,15 @@
                             @enderror
                         </div>
                         <div class="mb-3 mb-2">
+                            <label class="form-label" for="title">Type<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Write a name " id="type"
+                                name="type" required>
+                            <small>Field must contain a unique value</small>
+                            @error('type')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3 ">
                             <label class="form-label" for="title">auteur<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Write a name " id="title"
                                 name="author" required>
@@ -364,7 +385,7 @@
                             <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            
+
                         </div>
                     </form>
                 </div>
