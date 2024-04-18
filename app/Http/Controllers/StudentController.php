@@ -62,6 +62,8 @@ class StudentController extends Controller
     public function destroy(User $student)
     {
         $student->delete();
+        toastr()->warning('User deleted successfully.');
+
         return to_route('student.index')->with('messsage', 'Student deleted successfully');
     }
 }

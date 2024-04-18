@@ -46,7 +46,7 @@
                                         <th>Auteur</th>
                                         <th>telecharger</th>
                                         <th>Status</th>
-                                        <th>Visualer</th>
+                                        {{-- <th>Visualer</th> --}}
                                         <th>action</th>
 
 
@@ -82,11 +82,11 @@
                                                 </td>
                                             @endif
 
-                                            <td>
+                                            {{-- <td> --}}
 
                                                 {{-- <embed src="{{ asset('storage/' . $ebook->path) }}" type="application/pdf" width="100%" height="600px" /> --}}
 
-                                                    <a href="{{ route('download.pdf', ['ebook' => $ebook->path]) }}" class="btn btn-outline-warning mt-3" type="blank">PDF</a></td>
+                                                    {{-- <a href="{{ route('download.pdf', ['ebook' => $ebook->path]) }}" class="btn btn-outline-warning mt-3" type="blank">PDF</a></td> --}}
                                             <td class="text-muted align-middle border-top-0">
                                                 <span class="dropdown dropstart">
                                                     <a class="btn-icon btn btn-ghost btn-sm rounded-circle"

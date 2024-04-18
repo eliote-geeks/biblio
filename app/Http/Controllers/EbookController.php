@@ -53,6 +53,7 @@ class EbookController extends Controller
                 'path' => $pdfPath,
             ]);
         }
+        toastr()->success('Ebook created successfully.');
 
 
         return to_route('ebook.index')->with('message', 'ebook created successfully');
@@ -63,7 +64,7 @@ class EbookController extends Controller
      */
     public function show(Ebook $ebook)
     {
-        $filePath = storage_path('app/public/pdfs/' . $ebook);
+        $filePath = storage_path('app/public/pdfs/' . $ebook->path);
 
         return response()->download($filePath);
     }
@@ -104,8 +105,10 @@ class EbookController extends Controller
                 'path' => $pdfPath,
             ]);
         }
+        toastr()->success('Ebook Updated successfully.');
 
-        return to_route('ebook.index')->with('message', 'Ebook updated successfully');
+
+        return to_route('ebook.index');
     }
 
     /**
@@ -114,6 +117,7 @@ class EbookController extends Controller
     public function destroy(Ebook $ebook)
     {
         $ebook->delete();
+        toastr()->warning('Ebook deleted successfully.');
         return to_route('ebook.index')->with('message', 'Ebook deleted successfully');
     }
 }

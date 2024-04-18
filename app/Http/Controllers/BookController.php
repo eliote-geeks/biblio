@@ -55,7 +55,9 @@ class BookController extends Controller
                 'cover_path' =>$path
             ]);
         }
-        return to_route('book.index')->with('message' , 'book added sucessufully');
+        toastr()->warning('Book  added successfully.');
+
+        return to_route('book.index');
     }
 
     /**
@@ -150,7 +152,9 @@ class BookController extends Controller
             ]);
 
         }
-        return redirect()->route('book.index')->with('message','Book updated successfully');
+        toastr()->success('Book upadated successfully.');
+
+        return redirect()->route('book.index');
     }
 
     /**
@@ -159,6 +163,8 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return to_route('book.index')->with('message', 'Book deleted successfuly');
+        toastr()->warning('Book deleted successfully.');
+
+        return to_route('book.index');
     }
 }

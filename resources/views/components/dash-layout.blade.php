@@ -31,9 +31,15 @@
     <link href="assets/libs/nouislider/dist/nouislider.min.css" rel="stylesheet">
     <link href="assets/libs/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/css/theme.min.css">
-    <title>Dashboard | Geeks - Admin Dashboard </title>
+    <title>Dashboard | Bookmerge - Admin Dashboard </title>
 </head>
 
 <body>
@@ -45,7 +51,7 @@
             <div class="vh-100" data-simplebar>
                 <!-- Brand logo -->
                 <a class="navbar-brand" href="../../index.html">
-                    <img src="assets/images/brand/logo/logo-inverse.svg" alt="" />
+                    <h3>BOOKMERGE</h3>
                 </a>
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -94,11 +100,11 @@
                         </a>
                         <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link " href="admin-instructor.html">
                                         Instructor
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link " href="{{ route('student.index') }}">Students</a>
                                 </li>
@@ -170,7 +176,7 @@
 
 
                 </ul>
-              
+
             </div>
         </nav>
         <!-- Page Content -->
@@ -244,8 +250,19 @@
                     </ul>
                 </nav>
             </div>
+            {{-- @if (session()->has('message'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>info!</strong> {{ session('message') }}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif --}}
+
+
 
             <main>
+
                 {{ $slot }}
 
             </main>
@@ -288,6 +305,10 @@
             <script src="assets/libs/nouislider/dist/nouislider.min.js"></script>
             <script src="assets/libs/wnumb/wNumb.min.js"></script>
             <script src="assets/libs/glightbox/dist/js/glightbox.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 
 
 
