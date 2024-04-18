@@ -301,7 +301,7 @@
                             <div class="border-top row mt-3 border-bottom mb-3 g-0">
                                 <div class="col">
                                     <div class="pe-1 ps-2 py-3">
-                                        <h5 class="mb-0">11,604</h5>
+                                        <h5 class="mb-0"> {{ \App\Models\Order::where('book_id', $book)->count() }}</h5>
                                         <span>Enrolled</span>
                                     </div>
                                 </div>
