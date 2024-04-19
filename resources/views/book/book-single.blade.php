@@ -369,7 +369,7 @@
                                 <div class="card-footer">
                                     <div class="row align-items-center g-0">
 
-                                        <div class="col ms-2">
+                                        <div class="col ms-2"> 
                                             <span>{{ $related->author }}</span>
                                         </div>
                                         {{-- enroll --}}
