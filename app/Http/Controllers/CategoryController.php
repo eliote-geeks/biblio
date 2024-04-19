@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Category;
 use App\Models\Ebook;
+use App\Models\Category;
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -34,7 +35,9 @@ class CategoryController extends Controller
         $category = Category::create([
             'name'=>$request->name,
         ]);
-        return to_route( 'category.index')->with('message', 'Category created successfully');
+        toastr()->success('Category created successfully.');
+
+        return to_route( 'category.index');
     }
 
     /**
@@ -65,7 +68,9 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->all());
-        return to_route('category.index')->with('message', 'Category edited successfully');
+        toastr()->success('Category edited successfully.');
+
+        return to_route('category.index');
     }
 
     /**
@@ -74,6 +79,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route('category.destroy')->with('message', 'category deleted successfully');
+        toastr()->warning('Category deleted successfully.');
+
+        return to_route('category.index');
     }
 }

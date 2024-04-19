@@ -30,7 +30,9 @@ class OrderController extends Controller
     {
         $order->status = 'accept';
         $order->date_take = now();
+        $order->book->quantity--;
         $order->save();
+        toastr()->success('Order Accepted successfully.');
 
         return redirect()->route('order.index');
     }
@@ -38,7 +40,9 @@ class OrderController extends Controller
     public function received(Order $order)
     {
         $order->status = 'done';
+        $order->book->quantity++;
         $order->save();
+        toastr()->success('Book or ebook Collected successfully.');
 
         return redirect()->route('order.index');
     }
@@ -81,6 +85,8 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->delete();
-        return to_route('order.index')->with('message' , 'Order deleted successfully');
+        toastr()->warning('Order deleted successfully.');
+
+        return to_route('order.index');
     }
 }

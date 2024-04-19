@@ -71,7 +71,7 @@ Route::middleware([
         if (Auth::user()->user_type == 'App\Models\Admin')
             return view('dashboard', compact('chart1', 'chart2'));
 
-            
+
         return redirect()->route('profileUser');
     })->name('dashboard');
 

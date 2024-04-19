@@ -47,7 +47,9 @@ class ProfileController extends Controller
         $user->dept = $request->department;
         $user->sexe = $request->sexe;
         $user->save();
-        return redirect()->back()->with('message','informations updated successfully !!');
+        toastr()->success('informations edited successfully.');
+
+        return redirect()->back();
 
     }
 
@@ -93,7 +95,9 @@ class ProfileController extends Controller
             return redirect()->route('myBooks');
         }
         else
-            return redirect()->back()->with('message','no book allowed !!');
+        toastr()->success('no book allowed.');
+
+            return redirect()->back();
     }
 
     public function removeMyBook($id)
@@ -102,6 +106,8 @@ class ProfileController extends Controller
             'user_id' => auth()->user()->id,
             'book_id' => $id,
         ])->firstOrFail()->delete();
-        return redirect()->back()->with('message','deleted !!');
+        toastr()->warning('Deleted');
+
+        return redirect()->back();
     }
 }
