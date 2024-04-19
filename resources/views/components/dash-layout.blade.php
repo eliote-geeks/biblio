@@ -100,11 +100,11 @@
                         </a>
                         <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link " href="admin-instructor.html">
-                                        Instructor
+                                <li class="nav-item">
+                                    <a class="nav-link " href="{{ route('student.create') }}">
+                                        Users List
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link " href="{{ route('student.index') }}">Students</a>
                                 </li>

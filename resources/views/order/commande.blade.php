@@ -71,14 +71,14 @@
                                                 </button>
 
                                             </td>
-                                          
+
                                                 <td class="align-middle border-top-0">
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#delete{{ $order->id }}">
                                                     delete
                                                 </button>
                                                 </td>
-                                           
+
                                         </tr>
 
 
@@ -227,7 +227,7 @@
                                                 </button>
 
                                             </td>
-                                           
+
                                         </tr>
                                         <div class="modal fade" id="borrow{{ $order->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabe" aria-hidden="true">

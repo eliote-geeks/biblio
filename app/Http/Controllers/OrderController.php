@@ -30,7 +30,11 @@ class OrderController extends Controller
     {
         $order->status = 'accept';
         $order->date_take = now();
-        $order->book->quantity--;
+        foreach ($order->books as $book) {
+            $book->quantity--; // Réduire la quantité de chaque livre
+            $book->save(); // Enregistrer la modification du livre
+        }
+
         $order->save();
         toastr()->success('Order Accepted successfully.');
 
