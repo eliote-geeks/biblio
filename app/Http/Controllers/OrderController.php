@@ -13,10 +13,9 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::where('status', 'wait')->get();
-        $ordersAccepted = Order::whereIn('status', ['accept','received','collect'])->get();
+        $ordersAccepted = Order::whereIn('status', ['accept', 'received', 'collect'])->get();
 
-        return view('order.commande', compact('orders','ordersAccepted'));
-
+        return view('order.commande', compact('orders', 'ordersAccepted'));
     }
 
     /**
@@ -28,23 +27,28 @@ class OrderController extends Controller
     }
     public function accept(Order $order)
     {
+        // Décrémenter la quantité
+        $order->book->quantity -+ 1;
+
+        // Mettre à jour le statut et la date de prise
         $order->status = 'accept';
         $order->date_take = now();
-        foreach ($order->books as $book) {
-            $book->quantity--; // Réduire la quantité de chaque livre
-            $book->save(); // Enregistrer la modification du livre
-        }
 
+        // Sauvegarder la commande
         $order->save();
-        toastr()->success('Order Accepted successfully.');
 
+        // Afficher un message de succès
+        toastr()->success('Order accepted successfully.');
+
+        // Rediriger vers la page d'index des commandes
         return redirect()->route('order.index');
     }
+
 
     public function received(Order $order)
     {
         $order->status = 'done';
-        $order->book->quantity++;
+        $order->book->quantity += 1;
         $order->save();
         toastr()->success('Book or ebook Collected successfully.');
 
