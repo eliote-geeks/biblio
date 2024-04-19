@@ -48,7 +48,6 @@
                                         <th>Address</th>
                                         <th>Sex</th>
                                         <th></th>
-                                        <th></th>
 
                                     </tr>
                                 </thead>
@@ -61,21 +60,17 @@
                                             <td>{{ $user->dept }}</td>
                                             <td>{{ $user->level }}</td>
                                             <td>{{ $user->address }}</td>
-                                            <td>{{ $user->sexe }}</td>
-                                            <td class="align-middle border-top-0">
-                                                <a href="#" class="fe fe-mail text-muted" data-bs-toggle="tooltip"
-                                                    data-placement="top" title="Message">
-                                                </a>
-                                            </td>
+                                            <td>{{ $user->sexe }}</td>   
+                                                <td class="align-middle border-top-0">
+                                                 
                                             <form action="{{ route('student.destroy', $user->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <td class="align-middle border-top-0">
-                                                    <button type="submit" class="text-muted" data-bs-toggle="tooltip"
-                                                        data-placement="top" title="Delete"><i
-                                                            class="fe fe-trash"></i></button>
-                                                </td>
+                                                    <button type="submit" class="text-muted btn btn-danger" data-bs-toggle="tooltip"
+                                                        data-placement="top" title="Delete">delete</button>
                                             </form>
+                                        </td>
+
                                         </tr>
                                     @endforeach
 

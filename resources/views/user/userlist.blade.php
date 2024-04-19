@@ -73,9 +73,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <td class="align-middle border-top-0">
-                                                    <button type="submit" class="text-muted" data-bs-toggle="tooltip"
-                                                        data-placement="top" title="Delete"><i
-                                                            class="fe fe-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip"
+                                                        data-placement="top" title="Delete">delete</button>
                                                 </td>
                                             </form>
                                         </tr>
