@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -27,17 +28,24 @@ class OrderController extends Controller
     }
     public function accept(Order $order)
     {
-        // Décrémenter la quantité
-        $order->book->quantity -+ 1;
+        // Récupérer le livre existant par son ID
+        $book = Book::find($order->book_id);
+        // Vérifier si le livre existe
+        if ($book) {
+            $book->quantity -= 1;
+            $book->save();
+        } else {
+           
+            throw new \Exception('Le livre associé à la commande n\'a pas été trouvé.');
+        }
 
-        // Mettre à jour le statut et la date de prise
+        // Mettre à jour le statut et la date de prise de la commande
         $order->status = 'accept';
         $order->date_take = now();
 
         // Sauvegarder la commande
         $order->save();
 
-        // Afficher un message de succès
         toastr()->success('Order accepted successfully.');
 
         // Rediriger vers la page d'index des commandes
@@ -45,8 +53,19 @@ class OrderController extends Controller
     }
 
 
+
     public function received(Order $order)
     {
+        // Récupérer le livre existant par son ID
+        $book = Book::find($order->book_id);
+        // Vérifier si le livre existe
+        if ($book) {
+            $book->quantity += 1;
+            $book->save();
+        } else {
+           
+            throw new \Exception('Le livre associé à la commande n\'a pas été trouvé.');
+        }
         $order->status = 'done';
         $order->book->quantity += 1;
         $order->save();
