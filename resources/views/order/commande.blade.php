@@ -60,7 +60,7 @@
                                             <td>{{ $order->book->title }}</td>
                                             <td>{{ $order->created_at }}</td>
                                             {{-- <td>{{ $order->date_back }}</td> --}}
-                                            <td><button class="btn btn-outline-warning"> {{ $order->status }}</button>
+                                            <td><button class="btn btn-outline-warning"> {{ $order->status }} </button>
                                             </td>
 
 
@@ -71,14 +71,14 @@
                                                 </button>
 
                                             </td>
-                                          
+
                                                 <td class="align-middle border-top-0">
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#delete{{ $order->id }}">
                                                     delete
                                                 </button>
                                                 </td>
-                                           
+
                                         </tr>
 
 
@@ -217,7 +217,7 @@
                                             <td>{{ $order->date_take }}</td>
                                             <td>{{ $order->date_back }}</td>
                                             <td><button class="btn btn-outline-primary">
-                                                    {{ $order->status }}</button></td>
+                                                    {{ $order->status }}  <span class="badge-dot bg-success"></span></button></td>
 
                                             <td class="align-middle border-top-0">
 
@@ -227,7 +227,7 @@
                                                 </button>
 
                                             </td>
-                                           
+
                                         </tr>
                                         <div class="modal fade" id="borrow{{ $order->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabe" aria-hidden="true">

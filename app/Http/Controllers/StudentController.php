@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('user.userlist', compact('users'));
     }
 
     /**
@@ -53,7 +55,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, User $student)
     {
-        //
+        $student->user_type = "App\Models\Admin";
+        $student->save();
+        toastr()->warning('Usertype change to ADMIN successfully.');
+        return to_route('student.create');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,9 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::where('status', 'wait')->get();
-        $ordersAccepted = Order::whereIn('status', ['accept','received','collect'])->get();
+        $ordersAccepted = Order::whereIn('status', ['accept', 'received', 'collect'])->get();
 
-        return view('order.commande', compact('orders','ordersAccepted'));
-
+        return view('order.commande', compact('orders', 'ordersAccepted'));
     }
 
     /**
@@ -28,19 +28,47 @@ class OrderController extends Controller
     }
     public function accept(Order $order)
     {
+        // Récupérer le livre existant par son ID
+        $book = Book::find($order->book_id);
+        // Vérifier si le livre existe
+        if ($book) {
+            $book->quantity -= 1;
+            $book->save();
+        } else {
+           
+            throw new \Exception('Le livre associé à la commande n\'a pas été trouvé.');
+        }
+
+        // Mettre à jour le statut et la date de prise de la commande
         $order->status = 'accept';
         $order->date_take = now();
-        $order->book->quantity--;
-        $order->save();
-        toastr()->success('Order Accepted successfully.');
 
+        // Sauvegarder la commande
+        $order->save();
+
+        toastr()->success('Order accepted successfully.');
+
+        // Rediriger vers la page d'index des commandes
         return redirect()->route('order.index');
     }
 
+
+
     public function received(Order $order)
     {
+        // Récupérer le livre existant par son ID
+        $book = Book::find($order->book_id);
+        // Vérifier si le livre existe
+        if ($book) {
+            $book->quantity += 1;
+            $book->save();
+        } else {
+           
+            throw new \Exception('Le livre associé à la commande n\'a pas été trouvé.');
+        }
         $order->status = 'done';
-        $order->book->quantity++;
+
+        $order->book->quantity += 1;
         $order->delete();
         toastr()->success('Book or ebook Collected successfully.');
 
