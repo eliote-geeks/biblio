@@ -41,7 +41,7 @@ class OrderController extends Controller
     {
         $order->status = 'done';
         $order->book->quantity++;
-        $order->save();
+        $order->delete();
         toastr()->success('Book or ebook Collected successfully.');
 
         return redirect()->route('order.index');
