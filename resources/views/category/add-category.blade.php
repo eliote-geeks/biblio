@@ -44,6 +44,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>action</th>
+                                        <th></th>
 
                                     </tr>
                                 </thead>
@@ -63,9 +64,9 @@
                                                     </a>
                                                     <span class="dropdown-menu" aria-labelledby="courseDropdown1">
                                                         <span class="dropdown-header">Action</span>
-                                                        <a class="dropdown-item btn btn-primary" href="#"><i
-                                                                class="fe fe-edit dropdown-item-icon" data-bs-toggle="modal"
-                                                                data-bs-target="#editCatgory{{$cat->id}}" ></i>edit</a>
+
+
+
                                                                 <form id="deleteForm-{{$cat->id}}" action="{{route('category.destroy',$cat->id)}}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -73,7 +74,7 @@
                                                                         <i class="fe fe-trash dropdown-item-icon"></i>Delete
                                                                     </a>
                                                                 </form>
-                                                                
+
                                                                 <script>
                                                                     function deleteBook(bookId) {
                                                                         if (confirm('Are you sure you want to delete this category?')) {
@@ -84,6 +85,9 @@
                                                     </span>
                                                 </span>
                                             </td>
+                                            <td><button class="dropdown-item btn btn-primary" href="#"><i
+                                                class="fe fe-edit dropdown-item-icon" data-bs-toggle="modal"
+                                                data-bs-target="#editCatgory{{$cat->id}}" ></i></button></td>
                                         </tr>
 
 
