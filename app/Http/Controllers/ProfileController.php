@@ -67,7 +67,7 @@ class ProfileController extends Controller
         ->leftJoin('orders','orders.book_id','=','books.id')
         ->selectRaw('books.*, orders.date_take date_take, orders.date_back date_back')
         ->where('orders.user_id','=',Auth::user()->id)
-        ->where('orders.status','=','received')
+        ->where('orders.status','=','accept')
         ->get();
         return view('profile.my-books',compact('books','booksOK'));
     }

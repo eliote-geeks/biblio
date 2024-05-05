@@ -67,8 +67,9 @@ class OrderController extends Controller
             throw new \Exception('Le livre associé à la commande n\'a pas été trouvé.');
         }
         $order->status = 'done';
+
         $order->book->quantity += 1;
-        $order->save();
+        $order->delete();
         toastr()->success('Book or ebook Collected successfully.');
 
         return redirect()->route('order.index');
