@@ -6,12 +6,16 @@
                 <!-- Page header -->
                 <div class="border-bottom pb-4 mb-4">
                     <div>
-                        <h1 class="mb-1 h2 fw-bold"> DashBoard</h1>
+                        <h1 class="mb-1 h2 fw-bold"> List Of Students</h1>
                         <!-- Breadcrumb -->
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="admin-dashboard.html">Dashboard</a>
+                                </li>
+
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Students
                                 </li>
                             </ol>
                         </nav>
@@ -23,7 +27,45 @@
         </div>
         <div>
 
-       
+
+
+            <!-- Page Content -->
+            <div class="pt-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                            <!-- Bg -->
+                            <div class=" pt-16 rounded-top-md "
+                                style="
+                   background: url(../assets/images/background/profile-bg.jpg) no-repeat;
+                    background-size: cover;">
+                            </div>
+                            <div
+                                class="d-flex align-items-end justify-content-between bg-white px-4  pt-2 pb-4 rounded-bottom-md shadow-sm ">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
+                                        <img src="{{ auth()->user()->profile_photo_url }}"
+                                            class="avatar-xl rounded-circle border border-4 border-white"
+                                            alt="">
+                                    </div>
+                                    <div class="lh-1">
+                                        <h2 class="mb-0">{{ auth()->user()->name }}
+
+                                        </h2>
+                                        <p class=" mb-0 d-block">{{ '@' . auth()->user()->name }}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="{{ route('profileUser') }}"
+                                        class="btn btn-primary btn-sm d-none d-md-block">Account
+                                        Setting</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Content -->
             <div class="pb-5 py-md-5">
                 <div class="container">
@@ -204,6 +246,10 @@
 
 
 
+
         </div>
+    </div>
+    </div>
+
     </div>
 </x-dash-layout>

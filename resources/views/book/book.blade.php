@@ -41,11 +41,11 @@
                             <table id="dataTableBasic" class="table" style="width:100%">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>Book Cover \ Description</th>
                                         <th>Titre</th>
+                                        <th>Book Cover \ Description</th>
                                         <th>Auteur</th>
                                         <th>nombre</th>
-                                        <th>Status</th>
+                                        {{-- <th>Status</th> --}}
                                         <th>Categorie</th>
                                         <th>action</th>
 
@@ -55,6 +55,7 @@
                                 <tbody>
                                     @foreach ($books as $book)
                                         <tr>
+                                            <td><a href="{{ route('book.show',$book) }}"> {{ $book->title }} </a></td>
                                             <td>
                                                 <div class="d-lg-flex align-items-center">
                                                     <div>
@@ -63,16 +64,16 @@
                                                     </div>
                                                     <div class="ms-lg-3 mt-2 mt-lg-0">
                                                         <h4 class="mb-1 text-primary-hover">
-                                                            {{ $book->description }}
+                                                            {{ \Str::limit($book->description,20) }}
                                                         </h4>
-                                                        <span class="text-inherit">Added on 7 July, 2021</span>
+                                                        <span class="text-inherit">Added on {{ \Carbon\Carbon::parse($book->created_at)->format('d, M Y') }}</span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>{{ $book->title }}</td>
+                                           
                                             <td>{{ $book->author }}</td>
                                             <td>{{ $book->quantity }}</td>
-                                            @if ($book->status === 'on')
+                                            {{-- @if ($book->status === 'on')
                                                 <td class="align-middle border-top-0">
                                                     <span class="badge-dot bg-success"></span>
                                                 </td>
@@ -80,7 +81,7 @@
                                                 <td class="align-middle border-top-0">
                                                     <span class="badge-dot bg-danger"></span>
                                                 </td>
-                                            @endif
+                                            @endif --}}
 
                                             <td>{{ $book->category->name }}</td>
                                             <td class="text-muted align-middle border-top-0">
@@ -156,18 +157,6 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="title">Type<span
-                                                                        class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Write a name " id="type"
-                                                                    name="type" value="{{ $book->type }}"
-                                                                    required>
-                                                                <small>Field must contain a unique value</small>
-                                                                @error('type')
-                                                                    <span>{{ $message }}</span>
-                                                                @enderror
-                                                            </div>
-                                                            <div class="mb-3">
                                                                 <label class="form-label" for="title">auteur<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" class="form-control"
@@ -220,13 +209,13 @@
                                                             <div class="mb-3 mb-3">
                                                                 <label class="form-label">Description</label>
                                                                 <div>
-                                                                    <textarea name="description" id="" cols="30" rows="10"> {{ $book->description }}</textarea>
+                                                                    <textarea class="form-control" name="description" id="" cols="30" rows="10"> {{ $book->description }}</textarea>
                                                                 </div>
                                                                 @error('description')
                                                                     <span>{{ $message }}</span>
                                                                 @enderror
                                                             </div>
-                                                            <div class="mb-2">
+                                                            {{-- <div class="mb-2">
                                                                 <label class="form-label">Status</label>
                                                                 <div class="form-check form-switch">
                                                                     <input type="checkbox" class="form-check-input"
@@ -238,7 +227,7 @@
                                                                 @error('status')
                                                                     <span>{{ $message }}</span>
                                                                 @enderror
-                                                            </div>
+                                                            </div> --}}
                                                             <div>
                                                                 <button type="submit" class="btn btn-primary">Add New
                                                                     Book</button>
@@ -363,14 +352,14 @@
                         <div class="mb-3 mb-3">
                             <label class="form-label">Description</label>
                             <div>
-                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea  class="form-control" name="description" id="" cols="30" rows="10"></textarea>
 
                             </div>
                             @error('description')
                                 <span>{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="mb-2">
+                        {{-- <div class="mb-2">
                             <label class="form-label">Status</label>
                             <div class="form-check form-switch">
                                 <input type="checkbox" class="form-check-input" id="customSwitch1" name="status">
@@ -379,7 +368,7 @@
                             @error('status')
                                 <span>{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div>
                             <button type="submit" class="btn btn-primary">Add New Book</button>
                             <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">

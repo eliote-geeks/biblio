@@ -24,12 +24,14 @@ use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 */
 
 Route::get('/', function () {
-    $books = Book::all();
-    $ebooks = Ebook::all();
-    return view('welcome', compact([
-        'books',
-        'ebooks'
-    ]));
+    // $books = Book::all();
+    // $ebooks = Ebook::all();
+    // return view('welcome', compact([
+    //     'books',
+    //     'ebooks'
+    // ]));
+
+    return redirect('login');
 });
 
 Route::resource('student', StudentController::class);
@@ -72,7 +74,7 @@ Route::middleware([
             return view('dashboard', compact('chart1', 'chart2'));
 
 
-        return redirect()->route('profileUser');
+        return redirect()->route('my-books');
     })->name('dashboard');
 
    Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');
@@ -87,6 +89,8 @@ Route::resource('order', OrderController::class);
 Route::post('/order-accepted/{order}', [OrderController::class, 'accept'])->name('order.accept');
 Route::post('/order-received/{order}', [OrderController::class, 'received'])->name('order.received');
 });
+
+
 
 
 // Route::get('profile-user',[ProfileController::class,'profile'])->name('profileUser');

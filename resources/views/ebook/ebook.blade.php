@@ -41,11 +41,11 @@
                             <table id="dataTableBasic" class="table" style="width:100%">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>Ebook Cover \ Description</th>
                                         <th>Titre</th>
+                                        <th>Ebook Cover \ Description</th>                                        
                                         <th>Auteur</th>
                                         <th>telecharger</th>
-                                        <th>Status</th>
+                                        <th>Category</th>
                                         {{-- <th>Visualer</th> --}}
                                         <th>action</th>
 
@@ -55,6 +55,7 @@
                                 <tbody>
                                     @foreach ($ebooks as $ebook)
                                         <tr>
+                                            <td><a href="{{ route('book.show',$ebook->book) }}">{{ $ebook->book->title }}</a></td>
                                             <td>
                                                 <div class="d-lg-flex align-items-center">
                                                     <div>
@@ -63,26 +64,27 @@
                                                     </div>
                                                     <div class="ms-lg-3 mt-2 mt-lg-0">
                                                         <h4 class="mb-1 text-primary-hover">
-                                                            {{ $ebook->book->description }}
+                                                            {{ \Str::limit($ebook->book->description,20) }}
                                                         </h4>
-                                                        <span class="text-inherit">Added on 7 July, 2021</span>
+                                                        <span class="text-inherit">Added on {{ \Carbon\Carbon::parse($ebook->book->created_at)->format('d M Y') }}</span>
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td>{{ $ebook->book->title }}</td>
+                                            </td>                                           
                                             <td>{{ $ebook->book->author }}</td>
                                             <td><a href="{{ asset('storage/' . $ebook->path) }}" class="btn btn-primary mt-3">PDF</a></td>
-                                            @if ($ebook->book->status === 'on')
+                                            {{-- @if ($ebook->book->status === 'on')
                                                 <td class="align-middle border-top-0">
                                                     <span class="badge-dot bg-success"></span>
                                                 </td>
                                             @else
-                                                <td class="align-middle border-top-0">
-                                                    <span class="badge-dot bg-danger"></span>
-                                                </td>
-                                            @endif
+
+                                            @endif --}}
 
                                             {{-- <td> --}}
+
+                                                <td class="align-middle border-top-0">
+                                                    {{ $ebook->book->category->name }}
+                                                </td>
 
                                                 {{-- <embed src="{{ asset('storage/' . $ebook->path) }}" type="application/pdf" width="100%" height="600px" /> --}}
 
@@ -151,31 +153,89 @@
                                                             method="POST" enctype="multipart/form-data">
                                                             @method('PATCH')
                                                             @csrf
-                                                            <div class="mb-3">
-                                                                <label class="form-label" for="title">Type<span
-                                                                        class="text-danger">*</span></label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Write a name " id="type"
-                                                                    name="title" value="{{ $ebook->type }}"
-                                                                    required>
+
+                                                            <div class="mb-3 mb-2">
+                                                                <label class="form-label" for="title">Titre<span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" placeholder="Write a title of ebook " id="title"
+                                                                    name="title" value="{{ $ebook->book->title }}" required>
                                                                 <small>Field must contain a unique value</small>
-                                                                @error('type')
+                                                                @error('title')
                                                                     <span>{{ $message }}</span>
                                                                 @enderror
                                                             </div>
-
                                                             <div class="col-12 mb-4">
-                                                                <h5 class="mb-3">pdf</h5>
-
+                                                                <h5 class="mb-3">PDF Path</h5>
+                                    
                                                                 <div class="fallback">
-                                                                    <input name="path" type="file" multiple />
+                                                                    <input name="path" type="file" accept=".pdf" />
+
+                                                                    
                                                                 </div>
                                                                 @error('path')
                                                                     <span>{{ $message }}</span>
                                                                 @enderror
-
-
                                                             </div>
+                                                            <div class="mb-3 ">
+                                                                <label class="form-label" for="title">auteur<span class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" placeholder="Write a author " id="title"
+                                                                    name="author" value="{{ $ebook->book->author }}" required>
+                                                                <small>Field must contain a unique value</small>
+                                                                @error('author')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div>                     
+                                                            <div class="col-12 mb-4">
+                                                                <h5 class="mb-3">Cover Image </h5>
+                                    
+                                                                <div class="fallback">
+                                                                    <input name="cover_path" type="file" />
+                                                                    <img src="{{ '/storage/'.$ebook->book->cover_path }}" class="avatar avatar-lg" alt="">
+                                                                </div>
+                                                                @error('cover_path')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                    
+                                    
+                                                            </div>
+                                                            <div class="mb-3 mb-2">
+                                                                <label class="form-label">Categorie</label>
+                                                                <select class="selectpicker" data-width="100%" name="category_id">
+                                                                    @foreach (\App\Models\Category::all() as $item)
+                                                                        <option
+                                                                         @if ( $ebook->book->category_id ==  $item->id)
+                                                                            selected
+                                                                        @endif  
+                                                                        value="{{ $item->id }}">{{ $item->name }}</option>
+                                                                    @endforeach
+                                    
+                                                                </select>
+                                                                @error('category_id')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3 mb-3">
+                                                                <label class="form-label">Description</label>
+                                                                <div>
+                                                                    <textarea class="form-control" name="description" id="" cols="30" rows="10">{{ $ebook->book->description }}</textarea>
+                                    
+                                                                </div>
+                                                                @error('description')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+
+
+
+                                                            {{-- <div class="mb-2">
+                                                                <label class="form-label">Status</label>
+                                                                <div class="form-check form-switch">
+                                                                    <input type="checkbox" active class="form-check-input" id="customSwitch1" name="status">
+                                                                    <label class="form-check-label" for="customSwitch1"></label>
+                                                                </div>
+                                                                @error('status')
+                                                                    <span>{{ $message }}</span>
+                                                                @enderror
+                                                            </div> --}}
 
 
                                                             <div>
@@ -239,17 +299,17 @@
                     <form action="{{ route('ebook.store') }}" method="POST" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
-                        <div class="mb-3 ">
-                            <label class="form-label" for="title">type<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Write a name " id="title"
-                                name="type" required>
-                            <small>Field must contain a unique value</small>
-                            @error('type')
-                                <span>{{ $message }}</span>
-                            @enderror
-                        </div>
+                     
 
-
+                            <div class="mb-3 mb-2">
+                                <label class="form-label" for="title">Titre<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Write a title of ebook " id="title"
+                                    name="title" required>
+                                <small>Field must contain a unique value</small>
+                                @error('title')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                            </div>
                         <div class="col-12 mb-4">
                             <h5 class="mb-3">PDF Path</h5>
 
@@ -260,21 +320,59 @@
                                 <span>{{ $message }}</span>
                             @enderror
                         </div>
-
-
                         <div class="mb-3 ">
-                            <label class="form-label">Book</label>
-                            <select class="selectpicker" data-width="100%" name="book">
-                                @foreach (\App\Models\Book::all() as $item)
-                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                            <label class="form-label" for="title">auteur<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Write a name " id="title"
+                                name="author" required>
+                            <small>Field must contain a unique value</small>
+                            @error('author')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>                     
+                        <div class="col-12 mb-4">
+                            <h5 class="mb-3">Cover Image </h5>
+
+                            <div class="fallback">
+                                <input name="cover_path" type="file" multiple />
+                            </div>
+                            @error('cover_path')
+                                <span>{{ $message }}</span>
+                            @enderror
+
+
+                        </div>
+                        <div class="mb-3 mb-2">
+                            <label class="form-label">Categorie</label>
+                            <select class="selectpicker" data-width="100%" name="category_id">
+                                @foreach (\App\Models\Category::all() as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
 
                             </select>
-                            @error('book')
+                            @error('category_id')
                                 <span>{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="mb-3 mb-3">
+                            <label class="form-label">Description</label>
+                            <div>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
 
+                            </div>
+                            @error('description')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>
+                        {{-- <div class="mb-2">
+                            <label class="form-label">Status</label>
+                            <div class="form-check form-switch">
+                                <input type="checkbox" class="form-check-input" id="customSwitch1" name="status">
+                                <label class="form-check-label" for="customSwitch1"></label>
+                            </div>
+                            @error('status')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div> --}}
 
 
                         <div>

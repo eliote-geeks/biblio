@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Book;
 use App\Models\Ebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +16,7 @@ class EbookController extends Controller
      */
     public function index()
     {
-        $ebooks = Ebook::all();
+        $ebooks = Ebook::orderBy('id')->get();
         return view('ebook.ebook', compact('ebooks'));
     }
 
@@ -31,11 +33,27 @@ class EbookController extends Controller
      */
     public function store(Request $request)
     {
+        $book = new Book();
+        $book->category_id = $request->category_id;
+        $book->type = 'ebook';
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->description = $request->description;
+        $book->cover_path = $request->cover_path;
 
-        $ebook = Ebook::create([
-            'book_id' => $request->book,
-            'type' => $request->type,
-        ]);
+        if($request->status)
+            $book->status = $request->status;
+        else
+            $book->status = 'inactive';
+
+        $book->save();
+
+
+
+        $ebook = new Ebook();
+        $ebook->type = '/';
+        $ebook->book_id = $book->id;
+       
 
         if ($request->file('path')) {
             $request->validate([
@@ -49,11 +67,10 @@ class EbookController extends Controller
             $pdfContent = file_get_contents($pdfFile);
             Storage::disk('public')->put($pdfPath, $pdfContent);
 
-            $ebook->update([
-                'path' => $pdfPath,
-            ]);
+            $ebook->path = $pdfPath;
+            $ebook->save();
         }
-        toastr()->success('Ebook created successfully.');
+        // toastr()->success('Ebook created successfully.');
 
 
         return to_route('ebook.index')->with('message', 'ebook created successfully');
@@ -82,7 +99,12 @@ class EbookController extends Controller
      */
     public function update(Request $request, Ebook $ebook)
     {
-        $ebook->update($request->all());
+        $book = Book::findOrFail($ebook->book->id);
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->category_id = $request->category_id;
+        $book->description = $request->description;
+        $book->save;
 
         if ($request->hasFile('path')) {
             $request->validate([
@@ -105,7 +127,7 @@ class EbookController extends Controller
                 'path' => $pdfPath,
             ]);
         }
-        toastr()->success('Ebook Updated successfully.');
+          // toastr()->success('Ebook Updated successfully.');
 
 
         return to_route('ebook.index');

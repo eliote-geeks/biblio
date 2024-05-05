@@ -38,9 +38,9 @@ class BookController extends Controller
             'author'=>$request->author,
             'quantity'=>$request->quantity,
             'description'=>$request->description,
-            'status'=>$request->status,
+            'status' => 'active',
             'category_id'=>$request->category_id,
-            'type' => $request->type,
+            'type' => 'book',
         ]);
 
         if($request->file('cover_path')){
