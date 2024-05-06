@@ -55,9 +55,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, User $student)
     {
-        $student->user_type = "App\Models\Admin";
-        $student->save();
-        toastr()->warning('Usertype change to ADMIN successfully.');
+        if($student->user_type == "App\Models\Admin")
+            $student->user_type = NULL;   
+        else
+            $student->user_type = "App\Models\Admin";
+                    
+         $student->save();
+
+        toastr()->warning('User role has been updated successfully.');
         return to_route('student.create');
     }
 

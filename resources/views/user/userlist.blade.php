@@ -46,8 +46,8 @@
                                         <th>email</th>
                                         <th>usertype</th>
 
-                                        <th></th>
-                                        <th></th>
+                                        <th>Role</th>
+                                        <th>Action</th>
 
                                     </tr>
                                 </thead>
@@ -58,25 +58,33 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                @if ($user->user_type === null)
-                                                    Student
+                                                @if ($user->user_type == 'App\Models\Admin')
+                                                    Library
                                                 @else
-                                                    Admin
+                                                    Student
                                                 @endif
                                             </td>
 
-                                           <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModa{{ $user->id }}">
-                                            Admin
-                                        </button></td>
-                                            <form action="{{ route('student.destroy', $user->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <td class="align-middle border-top-0">
-                                                    <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip"
+                                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModa{{ $user->id }}">
+                                                    @if ($user->user_type == 'App\Models\Admin')
+                                                        name as Student
+                                                    @else
+                                                        name as Library
+                                                    @endif
+                                                </button></td>
+                                            <td class="align-middle border-top-0">
+                                                <form action="{{ route('student.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button
+                                                        onclick="return(confirm('are you sure to delete this user ?'))"
+                                                        type="submit" class="btn btn-danger" data-bs-toggle="tooltip"
                                                         data-placement="top" title="Delete">delete</button>
-                                                </td>
-                                            </form>
+
+                                                </form>
+                                            </td>
                                         </tr>
 
                                         <div class="modal fade" id="exampleModa{{ $user->id }}" tabindex="-1"
@@ -94,7 +102,7 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Change This user_type to Admin?
+                                                            Are you sure ? Please confirm this action ?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

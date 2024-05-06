@@ -61,15 +61,18 @@
                                             <td>{{ $user->level }}</td>
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->sexe }}</td>   
-                                                <td class="align-middle border-top-0">
-                                                 
-                                            <form action="{{ route('student.destroy', $user->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                    <button type="submit" class="text-muted btn btn-danger" data-bs-toggle="tooltip"
+                                            <td class="align-middle border-top-0">
+                                                <form action="{{ route('student.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button
+                                                        onclick="return(confirm('are you sure to delete this user ?'))"
+                                                        type="submit" class="btn btn-danger" data-bs-toggle="tooltip"
                                                         data-placement="top" title="Delete">delete</button>
-                                            </form>
-                                        </td>
+
+                                                </form>
+                                            </td>
 
                                         </tr>
                                     @endforeach

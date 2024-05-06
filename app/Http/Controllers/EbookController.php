@@ -70,7 +70,7 @@ class EbookController extends Controller
             $ebook->path = $pdfPath;
             $ebook->save();
         }
-        // toastr()->success('Ebook created successfully.');
+        toastr()->success('Ebook created successfully.');
 
 
         return to_route('ebook.index')->with('message', 'ebook created successfully');
@@ -127,7 +127,7 @@ class EbookController extends Controller
                 'path' => $pdfPath,
             ]);
         }
-          // toastr()->success('Ebook Updated successfully.');
+          toastr()->success('Ebook Updated successfully.');
 
 
         return to_route('ebook.index');

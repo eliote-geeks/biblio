@@ -47,7 +47,7 @@
                                 <h2 class="fw-bold mb-1">
                                    {{ \App\Models\Book::count() }}
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+20.9</span>
+                                {{-- <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+20.9</span> --}}
                                 <span class="ms-1 fw-medium">Number of Book</span>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 <h2 class="fw-bold mb-1">
                                     {{ \App\Models\Ebook::count() }}
                                 </h2>
-                                <span class="text-danger fw-semi-bold">120+</span>
+                                {{-- <span class="text-danger fw-semi-bold">120+</span> --}}
                                 <span class="ms-1 fw-medium">Number of Ebooks</span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <h2 class="fw-bold mb-1">
                                 {{ \App\Models\User::where('user_type')->count() }}
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+1200</span>
+                                {{-- <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+1200</span> --}}
                                 <span class="ms-1 fw-medium">Students</span>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                 <h2 class="fw-bold mb-1">
                                     {{ \App\Models\Order::where('status', 'wait')->count() }}
                                 </h2>
-                                <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+200</span>
+                                {{-- <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+200</span> --}}
                                 <span class="ms-1 fw-medium">Orders </span>
                             </div>
                         </div>
@@ -127,16 +127,16 @@
                                 </div>
                                 <div>
                                     <div class="dropdown dropstart">
-                                        <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button" id="courseDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="javascript:;" role="button" id="courseDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fe fe-more-vertical"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="courseDropdown1">
                                             <span class="dropdown-header">Settings</span>
-                                            <a class="dropdown-item" href="#"><i
+                                            <a class="dropdown-item" href="javascript:;"><i
                             class="fe fe-external-link dropdown-item-icon "></i>Export</a>
-                                            <a class="dropdown-item" href="#"><i class="fe fe-mail dropdown-item-icon "></i>Email
+                                            <a class="dropdown-item" href="javascript:;"><i class="fe fe-mail dropdown-item-icon "></i>Email
                           Report</a>
-                                            <a class="dropdown-item" href="#"><i
+                                            <a class="dropdown-item" href="javascript:;"><i
                             class="fe fe-download dropdown-item-icon "></i>Download</a>
                                         </div>
                                     </div>
@@ -161,16 +161,16 @@
                                 </div>
                                 <div>
                                     <div class="dropdown dropstart">
-                                        <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button" id="courseDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="javascript:;" role="button" id="courseDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fe fe-more-vertical"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="courseDropdown2">
                                             <span class="dropdown-header">Settings</span>
-                                            <a class="dropdown-item" href="#"><i
+                                            <a class="dropdown-item" href="javascript:;"><i
                             class="fe fe-external-link dropdown-item-icon "></i>Export</a>
-                                            <a class="dropdown-item" href="#"><i class="fe fe-mail dropdown-item-icon "></i>Email
+                                            <a class="dropdown-item" href="javascript:;"><i class="fe fe-mail dropdown-item-icon "></i>Email
                           Report</a>
-                                            <a class="dropdown-item" href="#"><i
+                                            <a class="dropdown-item" href="javascript:;"><i
                             class="fe fe-download dropdown-item-icon "></i>Download</a>
                                         </div>
                                     </div>
