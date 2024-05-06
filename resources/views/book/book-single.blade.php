@@ -274,13 +274,13 @@
                         <div class="card-body">
                             <!-- Price single page -->
 
-                            <div class="d-grid">
+                            <div class="d-grid"> 
                                 @if ($book->type == 'book')
                                     <a href="{{ route('enrollBook', $book) }}"
                                         class="btn btn-outline-primary">Enroll</a>
                                 @elseif($book->type == 'ebook')
-                                    <a href="{{ \App\Models\Ebook::where('book_id', $book->id)->path }}"
-                                        __target='blank' class="btn btn-outline-primary">Read</a>
+                                    <a href="{{ 'storage/'.\App\Models\Ebook::where('book_id', $book->id)->first()->path }}"
+                                        target='_blank' class="btn btn-outline-primary">Read</a>
                                 @else
                                 @endif
                             </div>
