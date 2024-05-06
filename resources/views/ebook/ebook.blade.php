@@ -11,7 +11,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="admin-dashboard.html">Dashboard</a>
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
                                 </li>
                                 <li class="breadcrumb-item">
                                     <a href="#">Ebook</a>
@@ -20,11 +20,14 @@
                             </ol>
                         </nav>
                     </div>
+                    @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
                     <div>
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#newCatgory">Add New
                             Ebook</a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -47,8 +50,11 @@
                                         <th>telecharger</th>
                                         <th>Category</th>
                                         {{-- <th>Visualer</th> --}}
+                                        @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
+                                       
                                         <th>action</th>
-
+                                        @endif
 
                                     </tr>
                                 </thead>
@@ -86,10 +92,14 @@
                                                     {{ $ebook->book->category->name }}
                                                 </td>
 
+                                              
                                                 {{-- <embed src="{{ asset('storage/' . $ebook->path) }}" type="application/pdf" width="100%" height="600px" /> --}}
 
                                                     {{-- <a href="{{ route('download.pdf', ['ebook' => $ebook->path]) }}" class="btn btn-outline-warning mt-3" type="blank">PDF</a></td> --}}
-                                            <td class="text-muted align-middle border-top-0">
+                                                    @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
+                                                
+                                                    <td class="text-muted align-middle border-top-0">
                                                 <span class="dropdown dropstart">
                                                     <a class="btn-icon btn btn-ghost btn-sm rounded-circle"
                                                         href="#" role="button" id="courseDropdown1"
@@ -129,6 +139,7 @@
                                                     </span>
                                                 </span>
                                             </td>
+                                            @endif
 
 
                                         </tr>
