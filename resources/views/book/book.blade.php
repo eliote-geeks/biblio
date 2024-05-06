@@ -20,11 +20,14 @@
                             </ol>
                         </nav>
                     </div>
+                    @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
                     <div>
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#newCatgory">Add New
                             Book</a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -47,8 +50,11 @@
                                         <th>nombre</th>
                                         {{-- <th>Status</th> --}}
                                         <th>Categorie</th>
-                                        <th>action</th>
+                                        @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
 
+                                        <th>action</th>
+                                        @endif
 
                                     </tr>
                                 </thead>
@@ -84,6 +90,8 @@
                                             @endif --}}
 
                                             <td>{{ $book->category->name }}</td>
+                                            @if (auth()->user()->user_type == 'App\Models\Admin')
+                        
                                             <td class="text-muted align-middle border-top-0">
                                                 <span class="dropdown dropstart">
                                                     <a class="btn-icon btn btn-ghost btn-sm rounded-circle"
@@ -120,7 +128,7 @@
                                                     </span>
                                                 </span>
                                             </td>
-
+                                            @endif
 
                                         </tr>
 

@@ -10,15 +10,24 @@
     <!-- Collapse navbar -->
     <div class="collapse navbar-collapse" id="sidenav">
         <div class="navbar-nav flex-column">
-            <span class="navbar-header">Subscription</span>
+            <span class="navbar-header">Dashboard</span>
             <!-- List -->
             <ul class="list-unstyled ms-n2 mb-4">
                 <!-- Nav item -->
+                @if (auth()->user()->user_type == 'App\Models\Admin')
+                <li class="nav-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('dashboard') }}"><i
+                            class="fe fe-calendar nav-icon"></i>My
+                       Dashboard</a>
+                </li>
+                @else
                 <li class="nav-item {{ Request::routeIs('myBooks') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('myBooks') }}"><i
                             class="fe fe-calendar nav-icon"></i>My
                         Books</a>
                 </li>
+                @endif
+
 
             </ul>
             <span class="navbar-header">Account Settings</span>

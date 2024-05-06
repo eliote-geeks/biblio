@@ -42,7 +42,7 @@
                                     @error('matricular')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
-
+                            @if (auth()->user()->user_type != 'App\Models\Admin')
                             <!-- Birthday -->
                             <div class="mb-3 col-12 col-md-6">
                                 <label class="form-label" for="birth">Level</label>
@@ -79,6 +79,9 @@
                                 </select>
                                 @error('sexe')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
+
+@endif
+
                             <div class="col-12">
                                 <!-- Button -->
                                 <button class="btn btn-primary" type="submit">
