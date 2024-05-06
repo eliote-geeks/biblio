@@ -71,12 +71,14 @@
                         </a>
                         <div id="navCourses" class="collapse " data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
+                                @if (auth()->user()->user_type == 'App\Models\Admin')
                                 <li class="nav-item">
                                     <a class="nav-link @if (request()->routeIs('category.index')) active @endif "
                                         href="{{ route('category.index') }}">
                                         All Category
                                     </a>
                                 </li>
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link @if (request()->routeIs('book.index')) active @endif"
                                         href="{{ route('book.index') }}">
@@ -91,6 +93,7 @@
                             </ul>
                         </div>
                     </li>
+                    @if (auth()->user()->user_type == 'App\Models\Admin')
                     <!-- Nav item -->
                     <li class="nav-item">
                         <a class="nav-link   collapsed @if (request()->routeIs('student.index')) active @endif " href="#"
@@ -111,7 +114,7 @@
                             </ul>
                         </div>
                     </li>
-
+                    @endif
                     <!-- Nav item -->
                     <li class="nav-item ">
                         <a class="nav-link   collapsed @if (request()->routeIs('ebook.index')) active @endif  " href="#"
@@ -130,6 +133,8 @@
                         </div>
                     </li>
                     <!-- Nav item -->
+                    @if (auth()->user()->user_type == 'App\Models\Admin')
+                    
                     <li class="nav-item ">
                         <a class="nav-link   collapsed @if (request()->routeIs('order.index')) active @endif  "
                             href="#" data-bs-toggle="collapse" data-bs-target="#navProject"
@@ -153,7 +158,7 @@
                             </ul>
                         </div>
                     </li>
-
+                    @endif
 
 
 
