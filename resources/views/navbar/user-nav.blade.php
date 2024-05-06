@@ -24,7 +24,7 @@
                 <li class="nav-item {{ Request::routeIs('myBooks') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('myBooks') }}"><i
                             class="fe fe-calendar nav-icon"></i>My
-                        Books</a>
+                            Dashboard</a>
                 </li>
                 @endif
 
