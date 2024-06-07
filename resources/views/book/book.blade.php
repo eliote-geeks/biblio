@@ -21,7 +21,7 @@
                         </nav>
                     </div>
                     @if (auth()->user()->user_type == 'App\Models\Admin')
-                        
+
                     <div>
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#newCatgory">Add New
@@ -51,7 +51,7 @@
                                         {{-- <th>Status</th> --}}
                                         <th>Categorie</th>
                                         @if (auth()->user()->user_type == 'App\Models\Admin')
-                        
+
 
                                         <th>action</th>
                                         @endif
@@ -65,7 +65,7 @@
                                             <td>
                                                 <div class="d-lg-flex align-items-center">
                                                     <div>
-                                                        <img src="{{ '/storage/' .$book->cover_path }}" alt
+                                                        <img src="{{ '/storage/' . $book->cover_path }}" alt
                                                             alt="" class="img-4by3-lg rounded" height="100" />
                                                     </div>
                                                     <div class="ms-lg-3 mt-2 mt-lg-0">
@@ -76,7 +76,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                           
+
                                             <td>{{ $book->author }}</td>
                                             <td>{{ $book->quantity }}</td>
                                             {{-- @if ($book->status === 'on')
@@ -91,7 +91,7 @@
 
                                             <td>{{ $book->category->name }}</td>
                                             @if (auth()->user()->user_type == 'App\Models\Admin')
-                        
+
                                             <td class="text-muted align-middle border-top-0">
                                                 <span class="dropdown dropstart">
                                                     <a class="btn-icon btn btn-ghost btn-sm rounded-circle"
